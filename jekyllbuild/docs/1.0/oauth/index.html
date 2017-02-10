@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+<title>BlackBox - Autenticação </title>
+
+<meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:500,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" id="color-change" href="">
+<link rel="stylesheet" id="switch-style" href="/css/grid.css">
+<link rel="alternate" type="application/rss+xml" title="BlackBox" href="http:/localhost:4000/feed.xml">
+
+</head>  
+<body class="has-classic-sidebar-left">
+    <header class="head">
+        <!-- menu, we did go with a static one, you can build a dynamic one, just google a little around -->
+<div class="main-menu">
+    <div class="content">
+        <nav id="menu">
+            <a class="toggle-link noline"><i class="fa fa-close fa-lg"></i></a>
+            <ul>
+                <li>
+                    <a class="homelink" href="/"><i class="fa fa-cube fa-fw" style="color: #1E1E1E; font-size: 1.2rem;"></i> <span style="color: #1E1E1E; font-weight: 600; font-size: 1.1rem;">BLACKBOX</span></a>
+                </li>
+                <!--<li>
+                    <a href="/archive">Releases</a>
+                </li>-->
+                <li><a class="dropdown-button" href="#" data-activates='drop-example'>API Docs&nbsp;&nbsp;<i class="fa fa-caret-down"></i></a>
+                </li>
+                <div id="drop-example" class="dropdown-content">
+                    <li>
+                        <a href="/docs/1.0/overview/">Visão Geral</a>
+                    </li>
+                    <li>
+                        <a href="/docs/1.0/roles/">Perfis de Usuário</a>
+                    </li>
+                    <li>
+                        <a href="/docs/1.0/oauth/">Tokens de Autorização</a>
+                    </li>
+                    <li>
+                        <a href="/docs/1.0/product/">Produto</a>
+                    </li>
+                    <li>
+                        <a href="/docs/1.0/sku/">SKUs</a>
+                    </li>
+                </div>
+                <!--<li>
+                    <a href="#modal-example" class="modal-trigger">Modal <i class="fa fa-cog"></i></a>
+                </li>-->
+            </ul>
+        </nav>
+        <nav class="iconnav">
+            <ul style="padding-left: 0px;">
+                <li class="hide">
+                    <a href="/"><i class="fa fa-cube fa-fw" style="color: #1E1E1E; font-size: 1.2rem;"></i> <span style="color: #1E1E1E; font-weight: 600; font-size: 1.1rem;">BLACKBOX</span></a>
+                </li>
+
+                <!--<li class="sicon">
+                    <a href='#search'><i class='fa fa-search'></i></a>
+                </li>-->
+            </ul>
+        </nav>
+        <a href='#menu' class="toggle-link noline">
+            <i class="fa fa-navicon"></i>
+        </a>
+    </div>
+</div>
+
+<div id="modal-example" class="modal color-change">
+    <div class="modal-content">
+        <h2>Change Color Palette</h2>
+        <p>
+            <img id="indigo" alt="color palette preview indigo" src="/media/compressed/indigo.jpg">
+            <img id="brown" alt="color palette preview brown" src="/media/compressed/brown.jpg">
+            <img id="green" alt="color palette preview green" src="/media/compressed/green.jpg">
+            <img id="teal" alt="color palette preview teal" src="/media/compressed/teal.jpg">
+        </p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">fechar</a>
+    </div>
+</div>
+    </header>
+    <div id="search">
+    <form role="search" id="searchform">
+        <input type="search" placeholder="Buscar"/>
+    </form>
+</div>
+
+    <div class="margin">
+        <div class="content">
+            <div class="sidebar classic-sidebar">
+                <div class="widget">
+                     
+                    <h3 id="blackbox-api">BlackBox API</h3>
+
+<p><a href="/docs/1.0/overview/">Visão Geral</a><br />
+<a href="/docs/1.0/roles/">Perfis de Usuário</a> <br />
+<a href="/docs/1.0/oauth/">Tokens de Autorização</a><br />
+<a href="/docs/1.0/product/">Produto</a><br />
+<a href="/docs/1.0/sku/">SKU</a></p>
+
+                </div>
+            </div>
+            <div class="content-container">
+                <article>
+                    
+
+                    <h1 class="page-title">
+                        Autenticação
+                    </h1>
+                    <div class="post-content">
+                        <hr />
+
+<p>A API do Antifraude utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos.</p>
+
+<p>Este documento descreve o fluxo necessário para que aplicações <strong>cliente</strong> obtenham tokens de acesso válidos para uso na plataforma. Caso deseje mais informações sobre o protocolo OAuth 2.0, consulte <a href="https://oauth.net/2/" target="_blank">https://oauth.net/2/</a>.</p>
+
+<h2 id="fluxo-para-obtenção-do-token-de-acesso">Fluxo para obtenção do token de acesso</h2>
+<hr />
+
+<ul>
+  <li>
+    <p>O token de acesso é obtido através do fluxo de autorização <strong>Client Credentials</strong>.</p>
+  </li>
+  <li>
+    <p>Para se autenticar com a API do Antifraude, é necessário que sejam previamente criadas as credenciais <strong>user</strong> e <strong>password</strong>, as quais deverão ser solicitadas à equipe de implantação da Braspag.</p>
+  </li>
+</ul>
+
+<p><img src="http://localhost:4000/img/FluxoAntifraude.png" alt="Obtenção de Tokens de Acesso" class="centerimg" title="Fluxo para obtenção do Token de Acesso " /></p>
+
+<ol>
+  <li>
+    <p>O <em>Authorization Server</em> valida a credencial recebida. Se for válida, retorna o token de acesso para a <em>Aplicação Cliente</em>.</p>
+  </li>
+  <li>
+    <p>A <em>Aplicação Cliente</em> informa o token de acesso obtido no cabeçalho das requisições HTTP feitas às APIs.</p>
+  </li>
+  <li>
+    <p>Se o token de acesso for válido, a requisição é processada e os dados são retornados para a <em>Aplicação Cliente</em>.</p>
+  </li>
+</ol>
+
+<h2 id="exemplo-de-requisição-http">Exemplo de requisição HTTP</h2>
+<hr />
+
+<h3 id="cenário-i-obtenção-de-token-de-acesso">Cenário I: Obtenção de token de acesso</h3>
+
+<p><strong>REQUEST:</strong></p>
+
+<div class="language-http highlighter-rouge"><pre class="highlight"><code><span class="nf">POST</span> <span class="nn">/accesstoken</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">{antifraude endpoint}</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">no-cache</span>
+
+username={usuario}&amp;password={senha}&amp;grant_type=password
+</code></pre>
+</div>
+
+<p><strong>RESPONSE:</strong></p>
+
+<div class="language-http highlighter-rouge"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json;charset=UTF-8</span>
+</code></pre>
+</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faSYkjfiod8ddJxFTU3vti_rQV9fGvMrBNn0ZIZDqrLadEPKTUjt6ZPJSnNHtvOoJ6KO6gakgeyXNmSxFYHx7Y_-OCf8zgzILTVzCN5G1WTBWOKZHt-RknkmQLOgA882pWhC1gtOIQoq2tFX6-1VhOqsSCrdI3cUa2HolbGkxZWZMTPOl4Jzuy6ejo_USCMBNPqzvinchS0M33Bi8PiWMYwdpAbvwAe_nhIKNGmsAG6s7PTgWc2RksG6DaX8exdjvlGE9CMADq5LeM4JJ-BguZoHAP3yDBVZpe_DzI3JOrAYv0yzToBllPIMmq6CY-V8GJmckWByOGooBKr6COkZ1R9NPg2bvruYEC3g8hzKloUG21CD5r_la-t-0FvGHHY-8L7cKGybLidIYtw5aWOUgO2Aq0YScEnj1byDAsY6ROMnnzLrywkqscsf5xJACJwBmmEggHRyTVMY1-oOzmH6B2GNtC621i2XQ-8U6KVx9qD0R4qdWRn__AFatL7miTthMfO_PO2HWdDX_xD0i0jqcw"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">599</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<h3 id="cenário-ii-chamada-para-operação-da-api-utilizando-o-token-de-acesso-obtido">Cenário II: Chamada para operação da API utilizando o token de acesso obtido</h3>
+
+<p><strong>REQUEST:</strong></p>
+
+<div class="language-http highlighter-rouge"><pre class="highlight"><code><span class="nf">POST</span> <span class="nn">/Analysis</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">{antifraude endpoint}</span>
+<span class="na">Connection</span><span class="p">:</span> <span class="s">keep-alive</span>
+<span class="na">Content-Length</span><span class="p">:</span> <span class="s">220</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+</code></pre>
+</div>
+
+<p><strong>RESPONSE:</strong></p>
+
+<div class="language-http highlighter-rouge"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json;charset=UTF-8</span>
+</code></pre>
+</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<h3 id="como-obter-uma-credencial-de-usuário">Como obter uma credencial de usuário?</h3>
+
+<blockquote>
+  <p>Este serviço está em <strong>BETA</strong>. Solicite uma credencial pelo e-mail <a href="mailto:blackbox@braspag.com.br">blackbox@braspag.com.br</a></p>
+</blockquote>
+
+                    </div>
+                </article>
+                <div class="post-nav">
+                    
+                    <a class="btn prev" href="/docs/1.0/roles"><i class="fa fa-angle-left"></i><span class="short"> anterior</span></a>                     
+                    
+                    <a class="btn next" href="/docs/1.0/product"><span class="short">próximo </span><i class="fa fa-angle-right"></i></a>                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+    <div class="content">
+        <span>&copy; 2017 Braspag</span>
+        <span class="backtotop">Ir para o topo</span>
+    </div>
+</footer>
+<script src="/js/build/global.min.js"></script>
+<!-- analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50358022-5', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

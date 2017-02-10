@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+<title>BlackBox - SKU </title>
+
+<meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:500,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" id="color-change" href="">
+<link rel="stylesheet" id="switch-style" href="/css/grid.css">
+<link rel="alternate" type="application/rss+xml" title="BlackBox" href="http:/localhost:4000/feed.xml">
+
+</head>  
+<body class="has-classic-sidebar-left">
+    <header class="head">
+        <!-- menu, we did go with a static one, you can build a dynamic one, just google a little around -->
+<div class="main-menu">
+    <div class="content">
+        <nav id="menu">
+            <a class="toggle-link noline"><i class="fa fa-close fa-lg"></i></a>
+            <ul>
+                <li>
+                    <a class="homelink" href="/"><i class="fa fa-cube fa-fw" style="color: #1E1E1E; font-size: 1.2rem;"></i> <span style="color: #1E1E1E; font-weight: 600; font-size: 1.1rem;">BLACKBOX</span></a>
+                </li>
+                <!--<li>
+                    <a href="/archive">Releases</a>
+                </li>-->
+                <li><a class="dropdown-button" href="#" data-activates='drop-example'>API Docs&nbsp;&nbsp;<i class="fa fa-caret-down"></i></a>
+                </li>
+                <div id="drop-example" class="dropdown-content">
+                    <li>
+                        <a href="/docs/1.0/overview/">Visão Geral</a>
+                    </li>
+                    <li>
+                        <a href="/docs/1.0/roles/">Perfis de Usuário</a>
+                    </li>
+                    <li>
+                        <a href="/docs/1.0/oauth/">Tokens de Autorização</a>
+                    </li>
+                    <li>
+                        <a href="/docs/1.0/product/">Produto</a>
+                    </li>
+                    <li>
+                        <a href="/docs/1.0/sku/">SKUs</a>
+                    </li>
+                </div>
+                <!--<li>
+                    <a href="#modal-example" class="modal-trigger">Modal <i class="fa fa-cog"></i></a>
+                </li>-->
+            </ul>
+        </nav>
+        <nav class="iconnav">
+            <ul style="padding-left: 0px;">
+                <li class="hide">
+                    <a href="/"><i class="fa fa-cube fa-fw" style="color: #1E1E1E; font-size: 1.2rem;"></i> <span style="color: #1E1E1E; font-weight: 600; font-size: 1.1rem;">BLACKBOX</span></a>
+                </li>
+
+                <!--<li class="sicon">
+                    <a href='#search'><i class='fa fa-search'></i></a>
+                </li>-->
+            </ul>
+        </nav>
+        <a href='#menu' class="toggle-link noline">
+            <i class="fa fa-navicon"></i>
+        </a>
+    </div>
+</div>
+
+<div id="modal-example" class="modal color-change">
+    <div class="modal-content">
+        <h2>Change Color Palette</h2>
+        <p>
+            <img id="indigo" alt="color palette preview indigo" src="/media/compressed/indigo.jpg">
+            <img id="brown" alt="color palette preview brown" src="/media/compressed/brown.jpg">
+            <img id="green" alt="color palette preview green" src="/media/compressed/green.jpg">
+            <img id="teal" alt="color palette preview teal" src="/media/compressed/teal.jpg">
+        </p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">fechar</a>
+    </div>
+</div>
+    </header>
+    <div id="search">
+    <form role="search" id="searchform">
+        <input type="search" placeholder="Buscar"/>
+    </form>
+</div>
+
+    <div class="margin">
+        <div class="content">
+            <div class="sidebar classic-sidebar">
+                <div class="widget">
+                     
+                    <h3 id="blackbox-api">BlackBox API</h3>
+
+<p><a href="/docs/1.0/overview/">Visão Geral</a><br />
+<a href="/docs/1.0/roles/">Perfis de Usuário</a> <br />
+<a href="/docs/1.0/oauth/">Tokens de Autorização</a><br />
+<a href="/docs/1.0/product/">Produto</a><br />
+<a href="/docs/1.0/sku/">SKU</a></p>
+
+                </div>
+            </div>
+            <div class="content-container">
+                <article>
+                    
+
+                    <h1 class="page-title">
+                        SKU
+                    </h1>
+                    <div class="post-content">
+                        <hr />
+
+<p>SKUs são gerenciados pelo <code class="custom-highlight highlighter-rouge">VENDEDOR</code> e representam uma variação específica do <a href="/docs/1.0/product/">produto</a>, como tamanho, cor ou sabor. Cada produto possui ao menos um SKU.</p>
+
+<p><a name="attributes"></a></p>
+
+<h2 id="atributos-do-objeto">Atributos do objeto</h2>
+<hr />
+
+<p><strong class="custom-attrib">Id</strong>  <code class="custom-tag highlighter-rouge">int</code><br />
+Identificador do SKU</p>
+
+<p><strong class="custom-attrib">Sku</strong>  <code class="custom-tag highlighter-rouge">32</code>  <code class="custom-tag highlighter-rouge">string</code><br />
+Valor do SKU (Stock Keeping Unit)</p>
+
+<p><strong class="custom-attrib">CreatedOn</strong>  <code class="custom-tag highlighter-rouge">datetime</code><br />
+Data da criação do objeto</p>
+
+<p><strong class="custom-attrib">UpdatedOn</strong>  <code class="custom-tag highlighter-rouge">datetime</code><br />
+Data da última atualização do objeto</p>
+
+<p><strong class="custom-attrib">Status</strong>  <code class="custom-tag highlighter-rouge">int</code><br />
+Status do SKU no estoque. Valores possíveis: (0) em estoque, (1) sem estoque, (2) sob demanda, (3) descontinuado</p>
+
+<p><strong class="custom-attrib">Name</strong>  <code class="custom-tag highlighter-rouge">256</code>  <code class="custom-tag highlighter-rouge">string</code><br />
+Nome do SKU</p>
+
+<p><strong class="custom-attrib">Description</strong>  <code class="custom-tag highlighter-rouge">2048</code>  <code class="custom-tag highlighter-rouge">string</code><br />
+Descrição do SKU</p>
+
+<p><strong class="custom-attrib">ImageUrl</strong>  <code class="custom-tag highlighter-rouge">opcional</code>  <code class="custom-tag highlighter-rouge">256</code>  <code class="custom-tag highlighter-rouge">string</code><br />
+URL para a imagem do SKU</p>
+
+<p><strong class="custom-attrib">Inventory.UpdatedOn</strong>  <code class="custom-tag highlighter-rouge">datetime</code><br />
+Data da última atualização do SKU no inventório</p>
+
+<p><strong class="custom-attrib">Inventory.Quantity</strong>  <code class="custom-tag highlighter-rouge">int</code><br />
+Quantidade de itens disponíveis no inventório</p>
+
+<p><strong class="custom-attrib">Inventory.Type</strong>  <code class="custom-tag highlighter-rouge">int</code><br />
+Tipo de estoque. Valores possíveis: (0) Finito, (1) Infinito</p>
+
+<p><strong class="custom-attrib">Dimensions.Weight</strong>  <code class="custom-tag highlighter-rouge">opcional</code>  <code class="custom-tag highlighter-rouge">float</code><br />
+Peso do item (em gramas)</p>
+
+<p><strong class="custom-attrib">Dimensions.Height</strong>  <code class="custom-tag highlighter-rouge">opcional</code>  <code class="custom-tag highlighter-rouge">float</code><br />
+Altura do item (em centímetros)</p>
+
+<p><strong class="custom-attrib">Dimensions.Lenght</strong>  <code class="custom-tag highlighter-rouge">opcional</code>  <code class="custom-tag highlighter-rouge">float</code><br />
+Comprimento do item (em centímetros)</p>
+
+<p><strong class="custom-attrib">Dimensions.Width</strong>  <code class="custom-tag highlighter-rouge">opcional</code>  <code class="custom-tag highlighter-rouge">float</code><br />
+Largura do item  (em centímetros)</p>
+
+<p><strong class="custom-attrib">ListPrice.CreatedOn</strong>  <code class="custom-tag highlighter-rouge">datetime</code><br />
+Data de criação do preço de tabela</p>
+
+<p><strong class="custom-attrib">ListPrice.Amount</strong>  <code class="custom-tag highlighter-rouge">int</code><br />
+Valor em centavos do preço de tabela. Exemplo: 150 (1,50)</p>
+
+<p><strong class="custom-attrib">ListPrice.Currency</strong>  <code class="custom-tag highlighter-rouge">string</code><br />
+Código ISO 4217 da moeda utilizada no preço de tabela. Exemplos: BRL, USD, EUR</p>
+
+<p><strong class="custom-attrib">SellPrice.CreatedOn</strong>  <code class="custom-tag highlighter-rouge">datetime</code><br />
+Data de criação do preço de venda</p>
+
+<p><strong class="custom-attrib">SellPrice.Amount</strong>  <code class="custom-tag highlighter-rouge">int</code><br />
+Valor em centavos do preço de venda. Exemplo: 150 (1,50)</p>
+
+<p><strong class="custom-attrib">SellPrice.Currency</strong>  <code class="custom-tag highlighter-rouge">string</code><br />
+Código ISO 4217 da moeda utilizada no preço de venda. Exemplos: BRL, USD, EUR</p>
+
+<p><a style="float: right;" href="#attributes"><i class="fa fa-angle-double-up fa-fw"></i></a></p>
+
+<p><a name="http_operations"></a></p>
+
+<h2 id="operações-http">Operações HTTP</h2>
+<hr />
+
+<p><code class="http-post highlighter-rouge">POST</code> <a href="#post_sku" class="custom-attrib">/api/product/{productId}/sku</a><br />
+Criação de SKU para o produto {productId}</p>
+
+<p><code class="http-put highlighter-rouge">PUT</code> <a href="#put_sku" class="custom-attrib">/api/product/{productId}/sku/{skuId}</a><br />
+Atualização de SKU {skuId} para o produto {productId}</p>
+
+<p><code class="http-get highlighter-rouge">GET</code> <a href="#getbyid_sku" class="custom-attrib">/api/product/{productId}/sku/{skuId}</a><br />
+Obtenção de SKU do produto {productId} por Id</p>
+
+<p><code class="http-get highlighter-rouge">GET</code> <a href="#get_sku" class="custom-attrib">/api/product/{productId}/sku</a><br />
+Listagem dos SKUs do produto {productId}</p>
+
+<p><code class="http-put highlighter-rouge">PUT</code> <a href="#put_inventory" class="custom-attrib">/api/product/{productId}/sku/{skuId}/inventory</a><br />
+Atualização de estoque para o SKU {skuId} do produto {productId}</p>
+
+<p><code class="http-get highlighter-rouge">GET</code> <a href="#get_inventory" class="custom-attrib">/api/product/{productId}/sku/{skuId}/inventory</a><br />
+Obtenção de estoque do SKU {skuId}</p>
+
+<p><code class="http-put highlighter-rouge">PUT</code> <a href="#put_listprice" class="custom-attrib">/api/product/{productId}/sku/{skuId}/listprice</a><br />
+Atualização do preço de tabela do SKU {skuId}</p>
+
+<p><code class="http-get highlighter-rouge">GET</code> <a href="#get_listprice" class="custom-attrib">/api/product/{productId}/sku/{skuId}/listprice</a><br />
+Obtenção do preço de tabela do SKU {skuId}</p>
+
+<p><code class="http-put highlighter-rouge">PUT</code> <a href="#put_sellprice" class="custom-attrib">/api/product/{productId}/sku/{skuId}/sellprice</a><br />
+Atualização do preço de venda do SKU {skuId}</p>
+
+<p><code class="http-get highlighter-rouge">GET</code> <a href="#get_sellprice" class="custom-attrib">/api/product/{productId}/sku/{skuId}/sellprice</a><br />
+Obtenção do preço de venda do SKU {skuId}</p>
+
+<p><a style="float: right;" href="#http_operations"><i class="fa fa-angle-double-up fa-fw"></i></a></p>
+
+<p><a name="post_sku"></a></p>
+
+<h4 id="post-criação-de-sku"><code class="http-post highlighter-rouge">POST</code> Criação de SKU</h4>
+<hr />
+
+<p><strong>PARÂMETROS:</strong></p>
+
+<div class="language-csharp highlighter-rouge"><pre class="highlight"><code><span class="n">productId</span><span class="p">:</span> <span class="kt">int</span>  <span class="c1">// id do produto
+</span></code></pre>
+</div>
+
+<p><strong>REQUEST:</strong></p>
+
+<div class="language-http highlighter-rouge"><pre class="highlight"><code><span class="nf">POST</span> <span class="nn">/api/product/{productId}/sku</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">{blackbox endpoint}</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
+</div>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PROD9999"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SKU COR AZUL"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Descrição do SKU de Produto"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Inventory"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"ListPrice"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Amount"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"SellPrice"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Amount"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">999</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><strong>RESPONSE:</strong></p>
+
+<div class="language-http highlighter-rouge"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json;charset=UTF-8</span>
+</code></pre>
+</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9999</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/product/{productId}/sku/9999"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><a style="float: right;" href="#http_operations"><i class="fa fa-angle-double-up fa-fw"></i></a></p>
+
+<p><a name="put_sku"></a></p>
+
+<h4 id="put-atualização-de-sku"><code class="http-put highlighter-rouge">PUT</code> Atualização de SKU</h4>
+<hr />
+
+<p><strong>PARÂMETROS:</strong></p>
+
+<div class="language-csharp highlighter-rouge"><pre class="highlight"><code><span class="n">productId</span><span class="p">:</span> <span class="kt">int</span>  <span class="c1">// id do produto
+</span><span class="n">skuId</span><span class="p">:</span> <span class="kt">int</span>  <span class="c1">// id do sku
+</span></code></pre>
+</div>
+
+<p><strong>REQUEST:</strong></p>
+
+<div class="language-http highlighter-rouge"><pre class="highlight"><code><span class="nf">PUT</span> <span class="nn">/api/product/{productId}/sku/{skuId}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">{blackbox endpoint}</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
+</div>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PROD9999"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SKU COR AZUL ESCURO"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nova descrição do sku do produto"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ImageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://path.to/skuimage.png"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Dimensions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Weight"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Height"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Lenght"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Width"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><strong>RESPONSE:</strong></p>
+
+<div class="language-http highlighter-rouge"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json;charset=UTF-8</span>
+</code></pre>
+</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9999</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/product/{productId}/sku/9999"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><a style="float: right;" href="#http_operations"><i class="fa fa-angle-double-up fa-fw"></i></a></p>
+
+<p><a name="getbyid_sku"></a></p>
+
+<h4 id="get-obtenção-de-sku-por-id"><code class="http-get highlighter-rouge">GET</code> Obtenção de SKU por Id</h4>
+<hr />
+
+<p><strong>PARÂMETROS:</strong></p>
+
+<div class="language-csharp highlighter-rouge"><pre class="highlight"><code><span class="n">productId</span><span class="p">:</span> <span class="kt">int</span>  <span class="c1">// id do produto  
+</span><span class="n">skuId</span><span class="p">:</span> <span class="kt">int</span>  <span class="c1">// id do sku  
+</span></code></pre>
+</div>
+
+<p><strong>REQUEST:</strong></p>
+
+<div class="language-http highlighter-rouge"><pre class="highlight"><code><span class="nf">GET</span> <span class="nn">/api/product/{productId}/sku/{skuId}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">{blackbox endpoint}</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
+</div>
+
+<p><strong>RESPONSE:</strong></p>
+
+<div class="language-http highlighter-rouge"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json;charset=UTF-8</span>
+</code></pre>
+</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9999</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PROD9999"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"CreatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-08T08:53:23.9112582"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"UpdatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-08T08:53:24.292862"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SKU COR AZUL"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Descrição do SKU de Produto"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Inventory"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"UpdatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-08T08:53:23.9112582"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"Dimensions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Weight"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Height"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Lenght"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Width"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"ListPrice"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"CreatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-08T08:53:23.9112582"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"SellPrice"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"CreatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-08T08:53:23.9112582"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">999</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><a style="float: right;" href="#http_operations"><i class="fa fa-angle-double-up fa-fw"></i></a></p>
+
+<p><a name="get_sku"></a></p>
+
+<h4 id="get-listagem-de-skus-do-produto"><code class="http-get highlighter-rouge">GET</code> Listagem de SKUs do Produto</h4>
+<hr />
+
+<p><strong>PARÂMETROS:</strong></p>
+
+<div class="language-csharp highlighter-rouge"><pre class="highlight"><code><span class="n">productId</span><span class="p">:</span> <span class="kt">int</span>  <span class="c1">// id do produto  
+</span></code></pre>
+</div>
+
+<p><strong>REQUEST:</strong></p>
+
+<div class="language-http highlighter-rouge"><pre class="highlight"><code><span class="nf">GET</span> <span class="nn">/api/product/{productId}/sku</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">{blackbox endpoint}</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
+</div>
+
+<p><strong>RESPONSE:</strong></p>
+
+<div class="language-http highlighter-rouge"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json;charset=UTF-8</span>
+</code></pre>
+</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><a style="float: right;" href="#http_operations"><i class="fa fa-angle-double-up fa-fw"></i></a></p>
+
+
+                    </div>
+                </article>
+                <div class="post-nav">
+                    
+                    <a class="btn prev" href="/docs/1.0/product"><i class="fa fa-angle-left"></i><span class="short"> anterior</span></a>                     
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+    <div class="content">
+        <span>&copy; 2017 Braspag</span>
+        <span class="backtotop">Ir para o topo</span>
+    </div>
+</footer>
+<script src="/js/build/global.min.js"></script>
+<!-- analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50358022-5', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

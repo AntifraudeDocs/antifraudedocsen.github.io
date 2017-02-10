@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+<title>BlackBox - Produto </title>
+
+<meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:500,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" id="color-change" href="">
+<link rel="stylesheet" id="switch-style" href="/css/grid.css">
+<link rel="alternate" type="application/rss+xml" title="BlackBox" href="http:/localhost:4000/feed.xml">
+
+</head>  
+<body class="has-classic-sidebar-left">
+    <header class="head">
+        <!-- menu, we did go with a static one, you can build a dynamic one, just google a little around -->
+<div class="main-menu">
+    <div class="content">
+        <nav id="menu">
+            <a class="toggle-link noline"><i class="fa fa-close fa-lg"></i></a>
+            <ul>
+                <li>
+                    <a class="homelink" href="/"><i class="fa fa-cube fa-fw" style="color: #1E1E1E; font-size: 1.2rem;"></i> <span style="color: #1E1E1E; font-weight: 600; font-size: 1.1rem;">BLACKBOX</span></a>
+                </li>
+                <!--<li>
+                    <a href="/archive">Releases</a>
+                </li>-->
+                <li><a class="dropdown-button" href="#" data-activates='drop-example'>API Docs&nbsp;&nbsp;<i class="fa fa-caret-down"></i></a>
+                </li>
+                <div id="drop-example" class="dropdown-content">
+                    <li>
+                        <a href="/docs/1.0/overview/">Visão Geral</a>
+                    </li>
+                    <li>
+                        <a href="/docs/1.0/roles/">Perfis de Usuário</a>
+                    </li>
+                    <li>
+                        <a href="/docs/1.0/oauth/">Tokens de Autorização</a>
+                    </li>
+                    <li>
+                        <a href="/docs/1.0/product/">Produto</a>
+                    </li>
+                    <li>
+                        <a href="/docs/1.0/sku/">SKUs</a>
+                    </li>
+                </div>
+                <!--<li>
+                    <a href="#modal-example" class="modal-trigger">Modal <i class="fa fa-cog"></i></a>
+                </li>-->
+            </ul>
+        </nav>
+        <nav class="iconnav">
+            <ul style="padding-left: 0px;">
+                <li class="hide">
+                    <a href="/"><i class="fa fa-cube fa-fw" style="color: #1E1E1E; font-size: 1.2rem;"></i> <span style="color: #1E1E1E; font-weight: 600; font-size: 1.1rem;">BLACKBOX</span></a>
+                </li>
+
+                <!--<li class="sicon">
+                    <a href='#search'><i class='fa fa-search'></i></a>
+                </li>-->
+            </ul>
+        </nav>
+        <a href='#menu' class="toggle-link noline">
+            <i class="fa fa-navicon"></i>
+        </a>
+    </div>
+</div>
+
+<div id="modal-example" class="modal color-change">
+    <div class="modal-content">
+        <h2>Change Color Palette</h2>
+        <p>
+            <img id="indigo" alt="color palette preview indigo" src="/media/compressed/indigo.jpg">
+            <img id="brown" alt="color palette preview brown" src="/media/compressed/brown.jpg">
+            <img id="green" alt="color palette preview green" src="/media/compressed/green.jpg">
+            <img id="teal" alt="color palette preview teal" src="/media/compressed/teal.jpg">
+        </p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">fechar</a>
+    </div>
+</div>
+    </header>
+    <div id="search">
+    <form role="search" id="searchform">
+        <input type="search" placeholder="Buscar"/>
+    </form>
+</div>
+
+    <div class="margin">
+        <div class="content">
+            <div class="sidebar classic-sidebar">
+                <div class="widget">
+                     
+                    <h3 id="blackbox-api">BlackBox API</h3>
+
+<p><a href="/docs/1.0/overview/">Visão Geral</a><br />
+<a href="/docs/1.0/roles/">Perfis de Usuário</a> <br />
+<a href="/docs/1.0/oauth/">Tokens de Autorização</a><br />
+<a href="/docs/1.0/product/">Produto</a><br />
+<a href="/docs/1.0/sku/">SKU</a></p>
+
+                </div>
+            </div>
+            <div class="content-container">
+                <article>
+                    
+
+                    <h1 class="page-title">
+                        Produto
+                    </h1>
+                    <div class="post-content">
+                        <hr />
+
+<p>Permite ao <code class="custom-highlight highlighter-rouge">VENDEDOR</code> cadastrar e gerenciar seus produtos. Cada produto possui uma coleção de <a href="/docs/1.0/sku/">SKUs</a>.</p>
+
+<p><a name="attributes"></a></p>
+
+<h2 id="atributos-do-objeto">Atributos do objeto</h2>
+<hr />
+
+<p><strong class="custom-attrib">Id</strong>  <code class="custom-tag highlighter-rouge">int</code><br />
+Identificador do produto.</p>
+
+<p><strong class="custom-attrib">CreatedOn</strong>  <code class="custom-tag highlighter-rouge">datetime</code><br />
+Data da criação do objeto</p>
+
+<p><strong class="custom-attrib">UpdatedOn</strong>  <code class="custom-tag highlighter-rouge">datetime</code><br />
+Data da última atualização do objeto</p>
+
+<p><strong class="custom-attrib">MerchantId</strong>  <code class="custom-tag highlighter-rouge">guid</code><br />
+Identificador da loja, composto por 36 caracteres no formato <em>99999999-9999-9999-9999-999999999999</em></p>
+
+<p><strong class="custom-attrib">Name</strong>  <code class="custom-tag highlighter-rouge">256</code>  <code class="custom-tag highlighter-rouge">string</code><br />
+Nome do produto</p>
+
+<p><strong class="custom-attrib">Description</strong>  <code class="custom-tag highlighter-rouge">2048</code>  <code class="custom-tag highlighter-rouge">string</code><br />
+Descrição do produto</p>
+
+<p><strong class="custom-attrib">IsEnabled</strong>  <code class="custom-tag highlighter-rouge">bool</code><br />
+Flag que indica se produto está habilitado</p>
+
+<p><strong class="custom-attrib">Manufacturer.Name</strong>  <code class="custom-tag highlighter-rouge">opcional</code>  <code class="custom-tag highlighter-rouge">64</code>  <code class="custom-tag highlighter-rouge">string</code><br />
+Fabricante do produto</p>
+
+<p><strong class="custom-attrib">Manufacturer.Model</strong>  <code class="custom-tag highlighter-rouge">opcional</code>  <code class="custom-tag highlighter-rouge">64</code>  <code class="custom-tag highlighter-rouge">string</code><br />
+Modelo do produto</p>
+
+<p><strong class="custom-attrib">Manufacturer.Warranty</strong>  <code class="custom-tag highlighter-rouge">opcional</code>  <code class="custom-tag highlighter-rouge">int</code><br />
+Garantia do produto (em meses)</p>
+
+<p><strong class="custom-attrib">Skus</strong>  <code class="custom-tag highlighter-rouge">opcional</code>  <code class="custom-tag highlighter-rouge">array</code><br />
+Lista de SKUs do produto</p>
+
+<p><a style="float: right;" href="#attributes"><i class="fa fa-angle-double-up fa-fw"></i></a></p>
+
+<p><a name="http_operations"></a></p>
+
+<h2 id="operações-http">Operações HTTP</h2>
+<hr />
+
+<p><code class="http-post highlighter-rouge">POST</code> <a href="#post_product" class="custom-attrib">/api/product/</a><br />
+Criação de produto</p>
+
+<p><code class="http-put highlighter-rouge">PUT</code> <a href="#put_product" class="custom-attrib">/api/product/{productId}</a><br />
+Atualização de produto</p>
+
+<p><code class="http-get highlighter-rouge">GET</code> <a href="#getbyid_product" class="custom-attrib">/api/product/{productId}</a><br />
+Obtenção de Produto por Id</p>
+
+<p><code class="http-get highlighter-rouge">GET</code> <a href="#get_product" class="custom-attrib">/api/product/</a><br />
+Listagem de Produtos</p>
+
+<p><a style="float: right;" href="#http_operations"><i class="fa fa-angle-double-up fa-fw"></i></a></p>
+
+<p><a name="post_product"></a></p>
+
+<h4 id="post-criação-de-produto"><code class="http-post highlighter-rouge">POST</code> Criação de Produto</h4>
+<hr />
+
+<p><strong>REQUEST:</strong></p>
+
+<div class="language-http highlighter-rouge"><pre class="highlight"><code><span class="nf">POST</span> <span class="nn">/api/product/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">{blackbox endpoint}</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
+</div>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99999999-9999-9999-9999-999999999999"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do produto"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Descrição do produto"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fabricante do produto"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nt">"Warranty"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MODEL0001"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><strong>RESPONSE:</strong></p>
+
+<div class="language-http highlighter-rouge"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json;charset=UTF-8</span>
+</code></pre>
+</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9999</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/product/9999"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><a style="float: right;" href="#http_operations"><i class="fa fa-angle-double-up fa-fw"></i></a></p>
+
+<p><a name="put_product"></a></p>
+
+<h4 id="put-atualização-de-produto"><code class="http-put highlighter-rouge">PUT</code> Atualização de Produto</h4>
+<hr />
+
+<p><strong>PARÂMETROS:</strong></p>
+
+<div class="language-csharp highlighter-rouge"><pre class="highlight"><code><span class="n">productId</span><span class="p">:</span> <span class="kt">int</span>  <span class="c1">// id do produto
+</span></code></pre>
+</div>
+
+<p><strong>REQUEST:</strong></p>
+
+<div class="language-http highlighter-rouge"><pre class="highlight"><code><span class="nf">PUT</span> <span class="nn">/api/product/{productId}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">{blackbox endpoint}</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
+</div>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99999999-9999-9999-9999-999999999999"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do produto"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Descrição do produto"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fabricante do produto"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nt">"Warranty"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">  
+    </span><span class="nt">"Model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MODEL0001"</span><span class="w"> 
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><strong>RESPONSE:</strong></p>
+
+<div class="language-http highlighter-rouge"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json;charset=UTF-8</span>
+</code></pre>
+</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9999</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/product/9999"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><a style="float: right;" href="#http_operations"><i class="fa fa-angle-double-up fa-fw"></i></a></p>
+
+<p><a name="getbyid_product"></a></p>
+
+<h4 id="get-obtenção-de-produto-por-id"><code class="http-get highlighter-rouge">GET</code> Obtenção de Produto por Id</h4>
+<hr />
+
+<p><strong>PARÂMETROS:</strong></p>
+
+<div class="language-csharp highlighter-rouge"><pre class="highlight"><code><span class="n">productId</span><span class="p">:</span> <span class="kt">int</span>  <span class="c1">// id do produto
+</span></code></pre>
+</div>
+
+<p><strong>REQUEST:</strong></p>
+
+<div class="language-http highlighter-rouge"><pre class="highlight"><code><span class="nf">GET</span> <span class="nn">/api/product/{productId}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">{blackbox endpoint}</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
+</div>
+
+<p><strong>RESPONSE:</strong></p>
+
+<div class="language-http highlighter-rouge"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json;charset=UTF-8</span>
+</code></pre>
+</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9999</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"CreatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-23T09:44:13.3466667"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"UpdatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-23T09:44:13.3466667"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99999999-9999-9999-9999-999999999999"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do produto"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Descrição do produto"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fabricante do produto"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Warranty"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MODEL0001"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"IsEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Skus"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9999999</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PROD9999"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-23T09:44:15.16"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UpdatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-23T09:44:15.16"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SKU PROD9999"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Descrição do item"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Inventory"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"UpdatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-23T09:44:14.66"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"Dimensions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Weight"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Height"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.5</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Lenght"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.5</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Width"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"ListPrice"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"CreatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-23T09:44:13.97"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"SellPrice"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"CreatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-23T09:44:14.16"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">9000</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><a style="float: right;" href="#http_operations"><i class="fa fa-angle-double-up fa-fw"></i></a></p>
+
+<p><a name="get_product"></a></p>
+
+<h4 id="get-listagem-de-produtos"><code class="http-get highlighter-rouge">GET</code> Listagem de Produtos</h4>
+<hr />
+
+<p><strong>REQUEST:</strong></p>
+
+<div class="language-http highlighter-rouge"><pre class="highlight"><code><span class="nf">GET</span> <span class="nn">/api/product/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">{blackbox endpoint}</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
+</div>
+
+<p><strong>RESPONSE:</strong></p>
+
+<div class="language-http highlighter-rouge"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json;charset=UTF-8</span>
+</code></pre>
+</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><a style="float: right;" href="#http_operations"><i class="fa fa-angle-double-up fa-fw"></i></a></p>
+
+
+                    </div>
+                </article>
+                <div class="post-nav">
+                    
+                    <a class="btn prev" href="/docs/1.0/oauth"><i class="fa fa-angle-left"></i><span class="short"> anterior</span></a>                     
+                    
+                    <a class="btn next" href="/docs/1.0/sku"><span class="short">próximo </span><i class="fa fa-angle-right"></i></a>                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+    <div class="content">
+        <span>&copy; 2017 Braspag</span>
+        <span class="backtotop">Ir para o topo</span>
+    </div>
+</footer>
+<script src="/js/build/global.min.js"></script>
+<!-- analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50358022-5', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
