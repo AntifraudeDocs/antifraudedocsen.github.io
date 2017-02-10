@@ -1,33 +1,37 @@
 ---
 layout: page-classic-sidebar-left
-title: Produto
+title: Análise
 previous: /docs/1.0/autenticacao
 next: /docs/1.0/sku
 ---
 ---
 
-Permite ao `VENDEDOR`{:.custom-highlight} cadastrar e gerenciar seus produtos. Cada produto possui uma coleção de [SKUs]({{ site.baseurl }}{% link docs/1.0/sku.md %}).  
+Esta página descreve os campos do contrato do Antifraude Gateway, além de conter exemplos de requisições HTTP.  
 
   
-<a name="attributes"></a>
+<a name="contract"></a>
   
-## Atributos do objeto
+## Campos do Contrato
 -----------------------------------
 
-**Id**{:.custom-attrib}  `int`{:.custom-tag}  
-Identificador do produto.  
+**MerchantOrderId**{:.custom-attrib}  `100`{:.custom-tag}  `string`{:.custom-tag}  
+Número do Pedido da Loja.  
 
-**CreatedOn**{:.custom-attrib}  `datetime`{:.custom-tag}  
-Data da criação do objeto  
+**TotalOrderAmount**{:.custom-attrib}  `Int64`{:.custom-tag}  
+Valor total do pedido em centavos.  
+Ex: 150000 (Valor equivalente a R$1.500,00)
 
-**UpdatedOn**{:.custom-attrib}  `datetime`{:.custom-tag}  
-Data da última atualização do objeto
+**TransactionAmount**{:.custom-attrib}  `Int64`{:.custom-tag}  
+Valor da transação financeira a ser analisada.  
+Ex: 123456 Valor equivalente a R$1.234,56)
 
-**MerchantId**{:.custom-attrib}  `guid`{:.custom-tag}  
-Identificador da loja, composto por 36 caracteres no formato *99999999-9999-9999-9999-999999999999*  
+**Currency**{:.custom-attrib}  `3`{:.custom-tag}  `string`{:.custom-tag}  
+Moeda no formato ISSO 4217  
+Ex: BRL (Real Brasileiro)
 
-**Name**{:.custom-attrib}  `256`{:.custom-tag}  `string`{:.custom-tag}  
-Nome do produto
+**Provider**{:.custom-attrib}  `15`{:.custom-tag}  `string`{:.custom-tag}  
+Nome do Provedor da Solução de Analise de Fraude.  
+Ex: Cybersource, Redshield
 
 **Description**{:.custom-attrib}  `2048`{:.custom-tag}  `string`{:.custom-tag}  
 Descrição do produto
