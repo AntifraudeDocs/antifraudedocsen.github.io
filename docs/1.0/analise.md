@@ -54,16 +54,16 @@ Lista de SKUs do produto
 ## Operações HTTP
 -----------------------------------
 
-`POST`{:.http-post} [/api/product/](#post_product){:.custom-attrib}  
+`POST`{:.http-post} [/api/analise/](#post_product){:.custom-attrib}  
 Criação de produto  
 
-`PUT`{:.http-put} [/api/product/{productId}](#put_product){:.custom-attrib}  
+`PUT`{:.http-put} [/api/analise/{productId}](#put_product){:.custom-attrib}  
 Atualização de produto  
 
-`GET`{:.http-get} [/api/product/{productId}](#getbyid_product){:.custom-attrib}  
+`GET`{:.http-get} [/api/analise/{productId}](#getbyid_product){:.custom-attrib}  
 Obtenção de Produto por Id  
 
-`GET`{:.http-get} [/api/product/](#get_product){:.custom-attrib}  
+`GET`{:.http-get} [/api/analise/](#get_product){:.custom-attrib}  
 Listagem de Produtos  
 
 <a style="float: right;" href="#http_operations"><i class="fa fa-angle-double-up fa-fw"></i></a>
@@ -76,7 +76,7 @@ Listagem de Produtos
 **REQUEST:**  
 
 ``` http
-POST /api/product/ HTTP/1.1
+POST /api/analise/ HTTP/1.1
 Host: {blackbox endpoint}
 Authorization: Bearer {access_token}
 Content-Type: application/json
@@ -106,7 +106,7 @@ Content-Type: application/json;charset=UTF-8
   "Id": 9999,
   "Links": {
     "self": {
-      "href": "/api/product/9999",
+      "href": "/api/analise/9999",
       "method": "GET"
     }
   }
@@ -129,7 +129,7 @@ productId: int  // id do produto
 **REQUEST:**  
 
 ``` http
-PUT /api/product/{productId} HTTP/1.1
+PUT /api/analise/{productId} HTTP/1.1
 Host: {blackbox endpoint}
 Authorization: Bearer {access_token}
 Content-Type: application/json
@@ -159,7 +159,7 @@ Content-Type: application/json;charset=UTF-8
   "Id": 9999,
   "Links": {
     "self": {
-      "href": "/api/product/9999",
+      "href": "/api/analise/9999",
       "method": "GET"
     }
   }
@@ -182,7 +182,7 @@ productId: int  // id do produto
 **REQUEST:**  
 
 ``` http
-GET /api/product/{productId} HTTP/1.1
+GET /api/analise/{productId} HTTP/1.1
 Host: {blackbox endpoint}
 Authorization: Bearer {access_token}
 Content-Type: application/json
@@ -253,7 +253,7 @@ Content-Type: application/json;charset=UTF-8
 **REQUEST:**  
 
 ``` http
-GET /api/product/ HTTP/1.1
+GET /api/analise/ HTTP/1.1
 Host: {blackbox endpoint}
 Authorization: Bearer {access_token}
 Content-Type: application/json
