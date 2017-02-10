@@ -1,12 +1,12 @@
 ---
 layout: page-classic-sidebar-left
 title: SKU
-previous: /docs/1.0/product
+previous: /docs/1.0/analise
 next: 
 ---
 ---
 
-SKUs são gerenciados pelo `VENDEDOR`{:.custom-highlight} e representam uma variação específica do [produto]({{ site.baseurl }}{% link docs/1.0/product.md %}), como tamanho, cor ou sabor. Cada produto possui ao menos um SKU.  
+SKUs são gerenciados pelo `VENDEDOR`{:.custom-highlight} e representam uma variação específica do [produto]({{ site.baseurl }}{% link docs/1.0/analise.md %}), como tamanho, cor ou sabor. Cada produto possui ao menos um SKU.  
 
   
 <a name="attributes"></a>
@@ -85,34 +85,34 @@ Código ISO 4217 da moeda utilizada no preço de venda. Exemplos: BRL, USD, EUR
 ## Operações HTTP
 -----------------------------------
 
-`POST`{:.http-post} [/api/product/{productId}/sku](#post_sku){:.custom-attrib}  
+`POST`{:.http-post} [/api/analise/{productId}/sku](#post_sku){:.custom-attrib}  
 Criação de SKU para o produto {productId}  
 
-`PUT`{:.http-put} [/api/product/{productId}/sku/{skuId}](#put_sku){:.custom-attrib}  
+`PUT`{:.http-put} [/api/analise/{productId}/sku/{skuId}](#put_sku){:.custom-attrib}  
 Atualização de SKU {skuId} para o produto {productId}  
 
-`GET`{:.http-get} [/api/product/{productId}/sku/{skuId}](#getbyid_sku){:.custom-attrib}  
+`GET`{:.http-get} [/api/analise/{productId}/sku/{skuId}](#getbyid_sku){:.custom-attrib}  
 Obtenção de SKU do produto {productId} por Id
 
-`GET`{:.http-get} [/api/product/{productId}/sku](#get_sku){:.custom-attrib}  
+`GET`{:.http-get} [/api/analise/{productId}/sku](#get_sku){:.custom-attrib}  
 Listagem dos SKUs do produto {productId}  
 
-`PUT`{:.http-put} [/api/product/{productId}/sku/{skuId}/inventory](#put_inventory){:.custom-attrib}  
+`PUT`{:.http-put} [/api/analise/{productId}/sku/{skuId}/inventory](#put_inventory){:.custom-attrib}  
 Atualização de estoque para o SKU {skuId} do produto {productId}  
 
-`GET`{:.http-get} [/api/product/{productId}/sku/{skuId}/inventory](#get_inventory){:.custom-attrib}  
+`GET`{:.http-get} [/api/analise/{productId}/sku/{skuId}/inventory](#get_inventory){:.custom-attrib}  
 Obtenção de estoque do SKU {skuId}  
 
-`PUT`{:.http-put} [/api/product/{productId}/sku/{skuId}/listprice](#put_listprice){:.custom-attrib}  
+`PUT`{:.http-put} [/api/analise/{productId}/sku/{skuId}/listprice](#put_listprice){:.custom-attrib}  
 Atualização do preço de tabela do SKU {skuId}  
 
-`GET`{:.http-get} [/api/product/{productId}/sku/{skuId}/listprice](#get_listprice){:.custom-attrib}  
+`GET`{:.http-get} [/api/analise/{productId}/sku/{skuId}/listprice](#get_listprice){:.custom-attrib}  
 Obtenção do preço de tabela do SKU {skuId}  
 
-`PUT`{:.http-put} [/api/product/{productId}/sku/{skuId}/sellprice](#put_sellprice){:.custom-attrib}  
+`PUT`{:.http-put} [/api/analise/{productId}/sku/{skuId}/sellprice](#put_sellprice){:.custom-attrib}  
 Atualização do preço de venda do SKU {skuId}  
 
-`GET`{:.http-get} [/api/product/{productId}/sku/{skuId}/sellprice](#get_sellprice){:.custom-attrib}  
+`GET`{:.http-get} [/api/analise/{productId}/sku/{skuId}/sellprice](#get_sellprice){:.custom-attrib}  
 Obtenção do preço de venda do SKU {skuId}  
 
 <a style="float: right;" href="#http_operations"><i class="fa fa-angle-double-up fa-fw"></i></a>
@@ -131,7 +131,7 @@ productId: int  // id do produto
 **REQUEST:**  
 
 ``` http
-POST /api/product/{productId}/sku HTTP/1.1
+POST /api/analise/{productId}/sku HTTP/1.1
 Host: {blackbox endpoint}
 Authorization: Bearer {access_token}
 Content-Type: application/json
@@ -169,7 +169,7 @@ Content-Type: application/json;charset=UTF-8
   "Id": 9999,
   "Links": {
     "self": {
-      "href": "/api/product/{productId}/sku/9999",
+      "href": "/api/analise/{productId}/sku/9999",
       "method": "GET"
     }
   }
@@ -193,7 +193,7 @@ skuId: int  // id do sku
 **REQUEST:**  
 
 ``` http
-PUT /api/product/{productId}/sku/{skuId} HTTP/1.1
+PUT /api/analise/{productId}/sku/{skuId} HTTP/1.1
 Host: {blackbox endpoint}
 Authorization: Bearer {access_token}
 Content-Type: application/json
@@ -226,7 +226,7 @@ Content-Type: application/json;charset=UTF-8
   "Id": 9999,
   "Links": {
     "self": {
-      "href": "/api/product/{productId}/sku/9999",
+      "href": "/api/analise/{productId}/sku/9999",
       "method": "GET"
     }
   }
@@ -250,7 +250,7 @@ skuId: int  // id do sku
 **REQUEST:**  
 
 ``` http
-GET /api/product/{productId}/sku/{skuId} HTTP/1.1
+GET /api/analise/{productId}/sku/{skuId} HTTP/1.1
 Host: {blackbox endpoint}
 Authorization: Bearer {access_token}
 Content-Type: application/json
@@ -311,7 +311,7 @@ productId: int  // id do produto
 **REQUEST:**  
 
 ``` http
-GET /api/product/{productId}/sku HTTP/1.1
+GET /api/analise/{productId}/sku HTTP/1.1
 Host: {blackbox endpoint}
 Authorization: Bearer {access_token}
 Content-Type: application/json
