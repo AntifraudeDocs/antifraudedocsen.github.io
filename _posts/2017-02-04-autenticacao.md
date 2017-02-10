@@ -1,14 +1,14 @@
 ---
 type: image
 featimg: FluxoAntifraude.png
-title: Visão Geral da API 
+title: Autenticação
 tags: [texto]
 category: [docs]
 layout: post-full
 ---
   
 
-Veja aqui como se autenticar aa aaa DSFSFSDFD.  
+Veja aqui como se autenticar zzzzz DSFSFSDFD.  
 
 
-[Ler o artigo completo]({{ site.baseurl }}{% link docs/1.0/overview.md %})  
+[Ler o artigo completo]({{ site.baseurl }}{% link docs/1.0/autenticacao.md %})  
