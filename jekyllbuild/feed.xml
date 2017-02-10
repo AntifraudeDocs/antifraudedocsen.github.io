@@ -1,25 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 	<channel>
-		<title>BlackBox</title>
-		<description>Documentação da plataforma Braspag BlackBox</description>
-		<link>http://localhost:4000</link>
-		<atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-		
-			<item>
-				<title>Plataforma BlackBox</title>
-				
-				
-					<description>&lt;ul&gt;
-  &lt;li&gt;Virtualize seus pagamentos com a segurança e alta disponibilidade do Cartão Protegido e Pagador, em plataforma certificada PCI DSS 3.2 e ISO 22301&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-				
-				<pubDate>Tue, 07 Feb 2017 00:00:00 -0200</pubDate>
-				<link>http://localhost:4000/blackbox/</link>
-				<guid isPermaLink="true">http://localhost:4000/blackbox/</guid>
-			</item>
+		<title>Antifraude Gateway</title>
+		<description>Documentação da plataforma Braspag Antifraude Gateway</description>
+		<link></link>
+		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
 				<title>Visão Geral da API</title>
@@ -30,38 +15,21 @@
 </description>
 				
 				<pubDate>Sun, 05 Feb 2017 00:00:00 -0200</pubDate>
-				<link>http://localhost:4000/overview/</link>
-				<guid isPermaLink="true">http://localhost:4000/overview/</guid>
+				<link>/overview/</link>
+				<guid isPermaLink="true">/overview/</guid>
 			</item>
 		
 			<item>
-				<title>Carrinho de Compras social</title>
+				<title>Visão Geral da API</title>
 				
 				
-					<description>&lt;ul&gt;
-  &lt;li&gt;Tenha quantos carrinhos de compras quiser&lt;/li&gt;
-&lt;/ul&gt;
+					<description>&lt;p&gt;Veja aqui como se autenticar DSFSFSDFD.&lt;/p&gt;
 
 </description>
 				
-				<pubDate>Wed, 25 Jan 2017 00:00:00 -0200</pubDate>
-				<link>http://localhost:4000/socialcart/</link>
-				<guid isPermaLink="true">http://localhost:4000/socialcart/</guid>
-			</item>
-		
-			<item>
-				<title>Compra via mídias sociais</title>
-				
-				
-					<description>&lt;ul&gt;
-  &lt;li&gt;Todo produto cadastrado na plataforma gera uma URL com descrição do produto, meta-dados e Checkout&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-				
-				<pubDate>Sun, 25 Dec 2016 00:00:00 -0200</pubDate>
-				<link>http://localhost:4000/socialshopping/</link>
-				<guid isPermaLink="true">http://localhost:4000/socialshopping/</guid>
+				<pubDate>Sat, 04 Feb 2017 00:00:00 -0200</pubDate>
+				<link>/autenticacao/</link>
+				<guid isPermaLink="true">/autenticacao/</guid>
 			</item>
 		
 	</channel>

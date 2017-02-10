@@ -1,7 +1,7 @@
 ---
 layout: page-classic-sidebar-left
 title: Produto
-previous: /docs/1.0/oauth
+previous: /docs/1.0/autenticacao
 next: /docs/1.0/sku
 ---
 ---

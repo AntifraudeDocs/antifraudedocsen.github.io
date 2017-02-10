@@ -2,14 +2,14 @@
 <html>
 <head>
     <meta charset="UTF-8">
-<title>BlackBox - Autenticação </title>
+<title>Antifraude Gateway - Autenticação </title>
 
 <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
 <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:500,600' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="/css/main.css">
 <link rel="stylesheet" id="color-change" href="">
 <link rel="stylesheet" id="switch-style" href="/css/grid.css">
-<link rel="alternate" type="application/rss+xml" title="BlackBox" href="http:/localhost:4000/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="Antifraude Gateway" href="/feed.xml">
 
 </head>  
 <body class="has-classic-sidebar-left">
@@ -21,28 +21,22 @@
             <a class="toggle-link noline"><i class="fa fa-close fa-lg"></i></a>
             <ul>
                 <li>
-                    <a class="homelink" href="/"><i class="fa fa-cube fa-fw" style="color: #1E1E1E; font-size: 1.2rem;"></i> <span style="color: #1E1E1E; font-weight: 600; font-size: 1.1rem;">BLACKBOX</span></a>
+                    <a class="homelink" href="/"><i class="fa fa-shield fa-fw" style="color: #1E1E1E; font-size: 1.2rem;"></i> <span style="color: #1E1E1E; font-weight: 600; font-size: 1.1rem;">ANTIFRAUDE GATEWAY</span></a>
                 </li>
                 <!--<li>
                     <a href="/archive">Releases</a>
                 </li>-->
-                <li><a class="dropdown-button" href="#" data-activates='drop-example'>API Docs&nbsp;&nbsp;<i class="fa fa-caret-down"></i></a>
+                <li><a class="dropdown-button" href="#" data-activates='drop-example'>Documentação da API&nbsp;&nbsp;<i class="fa fa-caret-down"></i></a>
                 </li>
                 <div id="drop-example" class="dropdown-content">
                     <li>
                         <a href="/docs/1.0/overview/">Visão Geral</a>
                     </li>
                     <li>
-                        <a href="/docs/1.0/roles/">Perfis de Usuário</a>
+                        <a href="/docs/1.0/autenticacao/">Tokens de Autorização</a>
                     </li>
                     <li>
-                        <a href="/docs/1.0/oauth/">Tokens de Autorização</a>
-                    </li>
-                    <li>
-                        <a href="/docs/1.0/product/">Produto</a>
-                    </li>
-                    <li>
-                        <a href="/docs/1.0/sku/">SKUs</a>
+                        <a href="/docs/1.0/product/">Análise</a>
                     </li>
                 </div>
                 <!--<li>
@@ -93,13 +87,10 @@
             <div class="sidebar classic-sidebar">
                 <div class="widget">
                      
-                    <h3 id="blackbox-api">BlackBox API</h3>
+                    <h3 id="antifraude-gateway-api">Antifraude Gateway API</h3>
 
-<p><a href="/docs/1.0/overview/">Visão Geral</a><br />
-<a href="/docs/1.0/roles/">Perfis de Usuário</a> <br />
-<a href="/docs/1.0/oauth/">Tokens de Autorização</a><br />
-<a href="/docs/1.0/product/">Produto</a><br />
-<a href="/docs/1.0/sku/">SKU</a></p>
+<p><a href="/docs/1.0/autenticacao/">Autenticação</a><br />
+<a href="/docs/1.0/product/">Análise</a></p>
 
                 </div>
             </div>
@@ -113,7 +104,7 @@
                     <div class="post-content">
                         <hr />
 
-<p>A API do Antifraude utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos.</p>
+<p>A API do Antifraude Gateway utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos.</p>
 
 <p>Este documento descreve o fluxo necessário para que aplicações <strong>cliente</strong> obtenham tokens de acesso válidos para uso na plataforma. Caso deseje mais informações sobre o protocolo OAuth 2.0, consulte <a href="https://oauth.net/2/" target="_blank">https://oauth.net/2/</a>.</p>
 
@@ -121,25 +112,30 @@
 <hr />
 
 <ul>
-  <li>
-    <p>O token de acesso é obtido através do fluxo de autorização <strong>Client Credentials</strong>.</p>
-  </li>
-  <li>
-    <p>Para se autenticar com a API do Antifraude, é necessário que sejam previamente criadas as credenciais <strong>user</strong> e <strong>password</strong>, as quais deverão ser solicitadas à equipe de implantação da Braspag.</p>
-  </li>
+  <li>O token de acesso é obtido através do fluxo de autorização <strong>Client Credentials</strong>.</li>
 </ul>
 
-<p><img src="http://localhost:4000/img/FluxoAntifraude.png" alt="Obtenção de Tokens de Acesso" class="centerimg" title="Fluxo para obtenção do Token de Acesso " /></p>
+<p><img src="/img/FluxoAntifraude.png" alt="Obtenção de Tokens de Acesso" class="centerimg" title="Fluxo para obtenção do Token de Acesso " /></p>
+
+<p>– Fluxo de obtenção do Token de Acesso:</p>
 
 <ol>
   <li>
-    <p>O <em>Authorization Server</em> valida a credencial recebida. Se for válida, retorna o token de acesso para a <em>Aplicação Cliente</em>.</p>
+    <p>A <em>Aplicação Cliente</em>, informa à API do <em>Antifraud Gateway</em> suas credenciais.</p>
   </li>
   <li>
-    <p>A <em>Aplicação Cliente</em> informa o token de acesso obtido no cabeçalho das requisições HTTP feitas às APIs.</p>
+    <p>O <em>Antifraud Gateway</em> valida a credencial recebida. Se for válida, retorna o token de acesso para a <em>Aplicação Cliente</em>.</p>
+  </li>
+</ol>
+
+<p>– Fluxo de Análise:</p>
+
+<ol>
+  <li>
+    <p>A <em>Aplicação Cliente</em> informa o token de acesso no cabeçalho da requisições HTTP de Análise de Fraude.</p>
   </li>
   <li>
-    <p>Se o token de acesso for válido, a requisição é processada e os dados são retornados para a <em>Aplicação Cliente</em>.</p>
+    <p>Se o token de acesso for válido, a requisição é processada e a resposta de Análise é retornada <em>Aplicação Cliente</em>.</p>
   </li>
 </ol>
 
@@ -148,14 +144,31 @@
 
 <h3 id="cenário-i-obtenção-de-token-de-acesso">Cenário I: Obtenção de token de acesso</h3>
 
+<ul>
+  <li>
+    <p>Para se autenticar com a API do Antifraude, é necessário que sejam previamente criadas as credenciais <strong>user</strong> e <strong>password</strong>, as quais deverão ser solicitadas à equipe de implantação da Braspag.</p>
+  </li>
+  <li>
+    <p>Uma vez em posse dessas credenciais, será necessário “codificá-la” em  Base64, utilizando a convenção <strong>“usuario:senha”</strong>.
+<br />Exemplo:</p>
+
+    <ul>
+      <li>User: braspagtestes Password:1q2w3e4r</li>
+      <li>String  a ser codificada em Base 64: <strong>braspagtestes:1q2w3e4r</strong></li>
+      <li>Resultado: YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==</li>
+    </ul>
+  </li>
+</ul>
+
 <p><strong>REQUEST:</strong></p>
 
 <div class="language-http highlighter-rouge"><pre class="highlight"><code><span class="nf">POST</span> <span class="nn">/accesstoken</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">{antifraude endpoint}</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic {StringCodificadaEmBase64}</span>
 <span class="na">Cache-Control</span><span class="p">:</span> <span class="s">no-cache</span>
 
-username={usuario}&amp;password={senha}&amp;grant_type=password
+grant_type=client_credentials
 </code></pre>
 </div>
 
@@ -173,34 +186,14 @@ username={usuario}&amp;password={senha}&amp;grant_type=password
 </span></code></pre>
 </div>
 
-<h3 id="cenário-ii-chamada-para-operação-da-api-utilizando-o-token-de-acesso-obtido">Cenário II: Chamada para operação da API utilizando o token de acesso obtido</h3>
-
-<p><strong>REQUEST:</strong></p>
-
-<div class="language-http highlighter-rouge"><pre class="highlight"><code><span class="nf">POST</span> <span class="nn">/Analysis</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">{antifraude endpoint}</span>
-<span class="na">Connection</span><span class="p">:</span> <span class="s">keep-alive</span>
-<span class="na">Content-Length</span><span class="p">:</span> <span class="s">220</span>
-<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
-</code></pre>
-</div>
-
-<p><strong>RESPONSE:</strong></p>
-
-<div class="language-http highlighter-rouge"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json;charset=UTF-8</span>
-</code></pre>
-</div>
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="err">...</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<ul>
+  <li>Na resposta é importante ressaltar o campo <strong>expires_in</strong>, com  o tempo de expiração to access_token em segundos.</li>
+</ul>
 
 <h3 id="como-obter-uma-credencial-de-usuário">Como obter uma credencial de usuário?</h3>
 
 <blockquote>
-  <p>Este serviço está em <strong>BETA</strong>. Solicite uma credencial pelo e-mail <a href="mailto:blackbox@braspag.com.br">blackbox@braspag.com.br</a></p>
+  <p>Solicite uma credencial pelo e-mail <a href="mailto:implantacao.operacoes@braspag.com.br">implantacao.operacoes@braspag.com.br</a></p>
 </blockquote>
 
                     </div>

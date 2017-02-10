@@ -23,8 +23,7 @@
                         <iframe src="https://www.youtube.com/embed/{{page.yt-video-id}}?feature=player_detailpage" allowfullscreen></iframe>
                     </div>
                     {% endif %} {% elsif page.type == "image" or page.type == "gallery" %} {% if page.featimg %}
-                    <img class="featimg" src="{{ site.media_folder | prepend: site.baseurl | replace: '//', '/'}}/{{ page.featimg }}" alt="{{ page.featimg }}">                    {% endif %} {% elsif page.type == "audio" %} {% if page.audio-embed %} {{ page.audio-embed }} {% endif
-                    %} {% endif %}
+                    <img class="featimg" src="{{ site.media_folder | prepend: site.baseurl | replace: '//', '/'}}/{{ page.featimg }}" alt="{{ page.featimg }}"> {% endif %} {% elsif page.type == "audio" %} {% if page.audio-embed %} {{ page.audio-embed }} {% endif %} {% endif %}
 
                     <h1 class="post-title">
                         {{ page.title }}

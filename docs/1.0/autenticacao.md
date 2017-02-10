@@ -6,7 +6,7 @@ next: /docs/1.0/product
 ---
 ---
 
-A API do Antifraude utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos. 
+A API do Antifraude Gateway utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos. 
 
 Este documento descreve o fluxo necessário para que aplicações **cliente** obtenham tokens de acesso válidos para uso na plataforma. Caso deseje mais informações sobre o protocolo OAuth 2.0, consulte [https://oauth.net/2/](https://oauth.net/2/){:target="_blank"}.  
 
@@ -14,8 +14,6 @@ Este documento descreve o fluxo necessário para que aplicações **cliente** ob
 ----------------------------------------------
 
 * O token de acesso é obtido através do fluxo de autorização **Client Credentials**.
-
-
 
 ![Obtenção de Tokens de Acesso]({{ site.url }}/img/FluxoAntifraude.png){: .centerimg }{:title="Fluxo para obtenção do Token de Acesso "}
 

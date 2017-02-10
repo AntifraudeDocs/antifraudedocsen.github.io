@@ -2,7 +2,7 @@
 layout: page-classic-sidebar-left
 title: Visão Geral
 previous: 
-next: /docs/1.0/oauth
+next: /docs/1.0/autenticacao
 ---
 ---
 BlackBox é a plataforma da [Braspag](http://www.braspag.com.br){:target="_blank} que combina virtualização de pagamentos, carrinho de compras e mídias sociais para proporcionar uma experiência de checkout rápida, segura e ubíqua. 

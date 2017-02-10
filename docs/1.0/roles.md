@@ -2,7 +2,7 @@
 layout: page-classic-sidebar-left
 title: Perfis de Usuário
 previous: /docs/1.0/overview
-next: /docs/1.0/oauth
+next: /docs/1.0/autenticacao
 ---
 ---
 

@@ -1,6 +1,6 @@
 full_rebuild: true
-name: BlackBox
-description: Documentação da plataforma Braspag BlackBox
+name: Antifraude Gateway
+description: Documentação da plataforma Braspag Antifraude Gateway
 destination: jekyllbuild
 url: #place url
 baseurl: #place folder name if site is served in subfolder
