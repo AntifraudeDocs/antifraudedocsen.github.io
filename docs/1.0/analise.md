@@ -17,7 +17,7 @@ Esta página descreve os campos do contrato do Antifraude Gateway, além de cont
 **MerchantOrderId**{:.custom-attrib}  `required`{:.custom-tag} `100`{:.custom-tag} `string`{:.custom-tag}  
 Número do Pedido da Loja.  
 
-**TotalOrderAmount**{:.custom-attrib} `required`{:.custom-tag} `long`{:.custom-tag}
+**TotalOrderAmount**{:.custom-attrib} `required`{:.custom-tag} `long`{:.custom-tag}  
 Valor total do pedido em centavos.  
 Ex.: 150000 (Valor equivalente a R$1.500,00)
 
