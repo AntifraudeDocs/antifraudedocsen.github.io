@@ -1,2 +1,2 @@
 # AntifraudeDocs
-Documentação da AP  do Antifraude Braspag
+Documentação da API  do Antifraude Braspag
