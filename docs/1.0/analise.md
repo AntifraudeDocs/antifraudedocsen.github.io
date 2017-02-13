@@ -3,7 +3,7 @@ layout: page-classic-sidebar-left
 title: Análise
 featimg: MapAntifraud.png
 previous: /docs/1.0/autenticacao
-next: /docs/1.0/autenticacao
+next: /docs/1.0/postnotification
 ---
 ---
 

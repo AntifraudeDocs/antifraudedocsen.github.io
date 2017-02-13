@@ -2,7 +2,7 @@
 layout: page-classic-sidebar-left
 title: Autenticação
 featimg: MapAntifraud.png
-previous: /docs/1.0/analise
+previous: /docs/1.0/postnotification
 next: /docs/1.0/analise
 ---
 ---
@@ -16,7 +16,7 @@ Este documento descreve o fluxo necessário para que aplicações **cliente** ob
 
 * O token de acesso é obtido através do fluxo de autorização **Client Credentials**.
 
-![Obtenção de Tokens de Acesso]({{ site.url }}/img/FluxoAntifraude.png){: .centerimg }{:title="Fluxo para obtenção do Token de Acesso "}
+![Obtenção de Tokens de Acesso]({{ site.url }}/img/AntifraudeAuthentication.png){: .centerimg }{:title="Fluxo para obtenção do Token de Acesso "}
 
 -- Fluxo de obtenção do Token de Acesso:
 
