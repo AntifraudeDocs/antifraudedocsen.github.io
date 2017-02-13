@@ -2,7 +2,7 @@
 layout: page-classic-sidebar-left
 title: Análise
 previous: /docs/1.0/autenticacao
-next: /docs/1.0/sku
+next: /docs/1.0/autenticacao
 ---
 ---
 
