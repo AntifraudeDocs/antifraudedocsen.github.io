@@ -1,6 +1,7 @@
 ---
 layout: page-classic-sidebar-left
 title: Autenticação
+featimg: MapAntifraud.png
 previous: /docs/1.0/analise
 next: /docs/1.0/analise
 ---
