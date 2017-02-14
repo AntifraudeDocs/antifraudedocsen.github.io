@@ -25,13 +25,40 @@ Esta *caixa preta* é uma sequência de caracteres criptografados que contêm to
 ## Como configurar?
 
 1 - Inclua o javascript da Iovation em sua página de checkout  
-2 - Adicione parâmetros de configuração no javascript (**Parâmetros de Configuração**)  
+2 - Adicione parâmetros de configuração no javascript  
 3 - Crie um campo do tipo *hidden* em sua página para escrever a *caixa preta* nele e enviá-lo junto com os dados da transação a ser analisada  
 
-**Obs1.:** Você deve colocar os parâmetros de configuração antes de incluir a tag contendo o link do arquivo javascript da Iovation, pois assim terá  
-uma assertividade melhor na obtenção dos atributos do dispositivo do comprador.  
+**Obs.:** Não realize cache do script, pois pode ocorrer de vários dispositovos sejam identificados como sendo o mesmo.
 
-**Obs2.:** Não realize cache do script, pois pode ocorrer de vários dispositovos sejam identificados como sendo o mesmo.
+* Incluindo o javascript da Iovation  
+
+    Para incluir o javascript, adicione o seguinte elemento `<script>` na sua página de checkout. Esta é a URL da versão do snare.js do ambiente de produção da Iovation.  
+    **Exemplo:** `<script type="text/javascript" src="https://mpsnare.iesnare.com/snare.js"></script>`  
+
+    **IMPORTANTE!**  
+    Os parâmetros de configuração devem ser colocados antes da chamada da tag acima. Eles determinam como javascript do iovation funcionará, e podem ocorrer erros
+    caso os mesmos sejam colocados antes da chamada do javascript.
+
+**Exemplo**  
+
+```html
+<html>
+<head>
+<script>
+    var io_install_flash = false;
+    var io_install_stm = false;
+    var io_bbout_element_id = 'gatewayFingerprint';
+</script>
+</head>
+<script type="text/javascript" src="https://mpsnare.iesnare.com/snare.js"></script>
+
+<body>
+    <form>
+        <input type="hidden" name="gatewayFingerprint" id="gatewayFingerprint">
+    </form>
+</body>
+</html>
+```
 
 
 

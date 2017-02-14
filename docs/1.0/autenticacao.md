@@ -49,8 +49,8 @@ Este documento descreve o fluxo necessário para que aplicações **cliente** ob
 **REQUEST:**  
 
 ``` http
-POST /accesstoken HTTP/1.1
-Host: {https://authhomolog.braspag.com.br}
+POST https://authhomolog.braspag.com.br/oauth2/token HTTP/1.1
+Host: https://authhomolog.braspag.com.br
 Content-Type: application/x-www-form-urlencoded
 Authorization: Basic {StringCodificadaEmBase64}
 Cache-Control: no-cache
