@@ -7,17 +7,17 @@ next: /docs/1.0/autenticacao
 ---
 ---
 
-Serviço que envia um post de notificação ao cliente caso haja alguma alteração de status. 
+Serviço que envia um post de notificação ao cliente caso haja alguma alteração de status
 
-* É necessário solicitar a Equipe de Implementação o cadastramento da URL de Mudança de Status.
-Quando estimulada pelo servidor da Braspag, enviando o POST, a URL cadastrada para Retorno de
-Mudança de Status, deverá retornar o código HTTP 200 (OK), indicando que a mensagem foi recebida e processada com sucesso pelo servidor da loja.
+* É necessário solicitar ao Time de Implementação ([implantacao.operacoes@braspag.com.br](mailto:implantacao.operacoes@braspag.com.br)) o cadastramento da URL de mudança de status.
+Quando estimulada pelo servidor da Braspag, enviando um POST, a URL cadastrada para receber a
+mudança de status, deverá retornar o código HTTP 200 (OK), indicando que a mensagem foi recebida e processada com sucesso pelo servidor da loja.
 
-* Se a URL de mudança de status da loja for acessada pelo servidor da Braspag não exibir o código de
-confirmação ou ocorrer uma falha na conexão, o servidor irá fazer mais 3 tentativas de envio.
+* Se a URL de mudança de status da loja for acessada pelo servidor da Braspag não retornar o código de
+confirmação HTTP 200 (OK) ou ocorrer uma falha na conexão, serão realizadas mais 3 tentativas de envio.
 
-* A URL de mudança de Status de Pagamento somente pode utilizar porta 80 (padrão para http) ou porta
-443 (padrão para https). Recomendamos que a loja trabalhe sempre com SSL para esta url, ou seja, sempre HTTPS.
+* A URL de mudança de status somente pode utilizar porta 80 (padrão para http) ou porta
+443 (padrão para https). Recomendamos que a loja trabalhe sempre com SSL para esta URL, ou seja, sempre HTTPS.
 
 ![Notificação de Mudança de Status]({{ site.url }}/img/PostNotification.png){: .centerimg }{:title="Notificação de Mudança de Status "}
 

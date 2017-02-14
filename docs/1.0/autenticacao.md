@@ -20,15 +20,15 @@ Este documento descreve o fluxo necessário para que aplicações **cliente** ob
 
 -- Fluxo de obtenção do Token de Acesso:
 
-1. A *Aplicação Cliente*, informa à API do *Antifraud Gateway* suas credenciais.  
+1. A *Aplicação Cliente*, informa à API do *OAuth Braspag* suas credenciais.  
 
-2. O *Antifraud Gateway* valida a credencial recebida. Se for válida, retorna o token de acesso para a *Aplicação Cliente*.  
+2. O *OAuth Braspag* valida a credencial recebida. Se for válida, retorna o token de acesso para a *Aplicação Cliente*.  
 
 -- Fluxo de Análise:
 
 3. A *Aplicação Cliente* informa o token de acesso no cabeçalho da requisições HTTP de Análise de Fraude.   
 
-4. Se o token de acesso for válido, a requisição é processada e a resposta de Análise é retornada *Aplicação Cliente*.
+4. Se o token de acesso for válido, a requisição é processada e a resposta de análise é retornada *Aplicação Cliente*.
 
 
 
@@ -42,15 +42,15 @@ Este documento descreve o fluxo necessário para que aplicações **cliente** ob
 * Uma vez em posse dessas credenciais, será necessário "codificá-la" em  Base64, utilizando a convenção **"usuario:senha"**.
 <br/>Exemplo:
 
-    * User: braspagtestes Password:1q2w3e4r
-    * String  a ser codificada em Base 64: **braspagtestes:1q2w3e4r**
+    * User: braspagtestes Password: 1q2w3e4r
+    * String a ser codificada em Base 64: **braspagtestes:1q2w3e4r**
     * Resultado: YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==
 
 **REQUEST:**  
 
 ``` http
 POST /accesstoken HTTP/1.1
-Host: {antifraude endpoint}
+Host: {https://authhomolog.braspag.com.br}
 Content-Type: application/x-www-form-urlencoded
 Authorization: Basic {StringCodificadaEmBase64}
 Cache-Control: no-cache
@@ -72,7 +72,7 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
  
- * Na resposta é importante ressaltar o campo **expires_in**, com  o tempo de expiração to access_token em segundos.
+ * Na resposta é importante ressaltar o campo **expires_in**, com o tempo de expiração to access_token em segundos.
 
 ### Como obter uma credencial de usuário?  
 

@@ -67,7 +67,7 @@
                 content: "";
             }
         }
-        > ul {
+        ul {
             text-align: $mainnav-responsive-text-align;
             width: 100%;
             position: relative;
@@ -134,7 +134,7 @@
     background-color: #FFFFFF;
     margin: 0;
     display: none;
-    min-width: 100px;
+    min-width: 300px;
     max-height: 650px;
     overflow-y: auto;
     opacity: 0;

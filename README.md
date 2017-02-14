@@ -1,2 +1,2 @@
 # AntifraudeDocs
-Documentação da API  do Antifraude Gateway Braspag
+Documentação da API  do Antifraude Gateway Braspag.
