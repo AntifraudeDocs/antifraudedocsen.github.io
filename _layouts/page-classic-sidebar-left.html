@@ -31,9 +31,9 @@
                 </article>
                 <div class="post-nav">
                     {% if page.previous %}
-                    <a class="btn prev" href="{{ page.previous | prepend: site.baseurl | replace: '//', '/' }}"><i class="fa fa-angle-left"></i><span class="short"> anterior</span></a>                    {% endif %} 
+                    <a class="btn prev" href="{{ page.previous | prepend: site.baseurl | replace: '//', '/' }}"><i class="fa fa-angle-left"></i><span class="short"> previous</span></a>                    {% endif %} 
                     {% if page.next %}
-                    <a class="btn next" href="{{ page.next | prepend: site.baseurl | replace: '//', '/' }}"><span class="short">próximo </span><i class="fa fa-angle-right"></i></a>                    {% endif %}
+                    <a class="btn next" href="{{ page.next | prepend: site.baseurl | replace: '//', '/' }}"><span class="short">next </span><i class="fa fa-angle-right"></i></a>                    {% endif %}
                 </div>
             </div>
         </div>

@@ -1,48 +1,48 @@
 ---
 layout: page-classic-sidebar-left
-title: Autenticação
+title: Authentication
 featimg: MapAntifraud.png
 previous: /docs/1.0/postnotification
 next: /docs/1.0/analise
 ---
 ---
 
-A API do Antifraude Gateway utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos. 
+The Gateway Anti-Fraud API uses the industry-standard OAuth 2.0 protocol for authorization to access your resources. 
 
-Este documento descreve o fluxo necessário para que aplicações **cliente** obtenham tokens de acesso válidos para uso na plataforma. Caso deseje mais informações sobre o protocolo OAuth 2.0, consulte [https://oauth.net/2/](https://oauth.net/2/){:target="_blank"}.  
+This document describes the flow necessary for **client** obtain valid access tokens for use on the platform. If you want more information about the OAuth 2.0 protocol, see [https://oauth.net/2/](https://oauth.net/2/){:target="_blank"}.  
 
-## Fluxo para obtenção do token de acesso  
+## Flow to obtain the access token  
 ----------------------------------------------
 
-* O token de acesso é obtido através do fluxo de autorização **Client Credentials**.
+* The access token is obtained through the authorization flow **Client Credentials**.
 
-![Obtenção de Tokens de Acesso]({{ site.url }}/img/AntifraudeAuthentication.png){: .centerimg }{:title="Fluxo para obtenção do Token de Acesso "}
+![Obtaining Access Tokens]({{ site.url }}/img/AntifraudeAuthentication.png){: .centerimg }{:title="Flow to obtain the access token "}
 
--- Fluxo de obtenção do Token de Acesso:
+-- Access Token Obtaining Flow:
 
-1. A *Aplicação Cliente*, informa à API do *OAuth Braspag* suas credenciais.  
+1. The *Client Application*, informs the *OAuth Braspag* API your credentials.  
 
-2. O *OAuth Braspag* valida a credencial recebida. Se for válida, retorna o token de acesso para a *Aplicação Cliente*.  
+2. The *OAuth Braspag* validates the credential received. If valid, returns the access token for the *Client Application*.  
 
--- Fluxo de Análise:
+-- Analysis Flow:
 
-3. A *Aplicação Cliente* informa o token de acesso no cabeçalho da requisições HTTP de Análise de Fraude.   
+3. A *Client Application* informs the access token in the header of the HTTP Fraud Analysis requests.  
 
-4. Se o token de acesso for válido, a requisição é processada e a resposta de análise é retornada *Aplicação Cliente*.
+4. If the access token is valid, the request is processed and the analysis response is returned *Client application*.  
 
 
-
-## Exemplo de requisição HTTP  
+## Exemple HTTP request  
 ----------------------------------------------
 
-### Cenário I: Obtenção de token de acesso  
+### Scenario I: Obtaining access token  
 
-* Para se autenticar com a API do Antifraude, é necessário que sejam previamente criadas as credenciais **user** e **password**, as quais deverão ser solicitadas à equipe de implantação da Braspag.
+* In order to authenticate with the Anti-Fraud API, it is necessary that the credentials **user** and **password** be created in advance, which must be requested from Braspag's Implementation Team.
 
-* Uma vez em posse dessas credenciais, será necessário "codificá-la" em  Base64, utilizando a convenção **"usuario:senha"**.
-<br/>Exemplo:
+* Once in possession of the credentials, it will be necessary to "code it" in Base64, using a convention **"username: password"**.
+<br/>Exemple:
 
-    * User: braspagtestes Password: 1q2w3e4r
+    * User: braspagtestes
+    * Password: 1q2w3e4r
     * String a ser codificada em Base 64: **braspagtestes:1q2w3e4r**
     * Resultado: YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==
 
@@ -72,8 +72,8 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
  
- * Na resposta é importante ressaltar o campo **expires_in**, com o tempo de expiração to access_token em segundos.
+ * In the response it is important to highlight the **expires_in** field, with the expiration time for access token in seconds.
 
-### Como obter uma credencial de usuário?  
+### How to obtain a user credential?  
 
-> Solicite uma credencial pelo e-mail [implantacao.operacoes@braspag.com.br](mailto:implantacao.operacoes@braspag.com.br)
+> Request a credential by email [implantacao.operacoes@braspag.com.br](mailto:implantacao.operacoes@braspag.com.br)

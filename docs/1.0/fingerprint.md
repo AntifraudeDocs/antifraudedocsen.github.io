@@ -1,45 +1,44 @@
 ---
 layout: page-classic-sidebar-left
-title: Configuração do Fingerprint
+title: Fingerprint Setup
 featimg: MapAntifraud.png
 previous: /docs/1.0/postnotification
 next: /docs/1.0/autenticacao
 ---
 
-Serviço que coleta impressão digital de dispositivos e geolocalização real do IP do comprador e cria uma *caixa preta*.  
-Esta *caixa preta* é uma sequência de caracteres criptografados que contêm todos os atributos do dispositivo.  
+Service that collects device fingerprint and real geolocation from buyer IP and creates a *black box*.
+This *black box* is a string of encrypted characters that contain all device attributes.  
 
 -----------------------------------
 
-## Como funciona?
+## How it works?
 
-![Fluxo]({{ site.url }}/img/fingerprint.png){: .centerimg }{:title="Fluxo da coleta do fingerprint "}
+![Fluxo]({{ site.url }}/img/fingerprint.png){: .centerimg }{:title="Fingerprint Collection Flow "}
 
-1 - A página de checkout da loja envia os atributos do dispositivo do comprador para a Iovation, criando assim a *caixa preta*  
-2 - O lojista recebe a sequência de caracteres criptografados da Iovation e escreve o mesmo na página de checkout em um campo do tipo *hidden*  
-3 - O lojista envia para a Braspag, junto com os demais dados da transação a ser analisada, a *caixa preta*  
-4 - A Braspag recebe todos os dados, valida e envia para a ReD Shield  
-5 - A ReD Shield recebe todos os dados, envia a *caixa preta* para a Iovation descriptografar  
-6 - A Red Shield recebe da Iovation os atributos do dispositivo do comprador 
+1 - The store checkout page sends the attributes of the buyer's device to Iovation, thereby creating the *black box*  
+2 - The store receives an Iovation encryption string and writes the same on the checkout page in a field of type *hidden*  
+3 - The store sends to Braspag, together with the other data of the transaction to be analyzed, the *black box*  
+4 - Braspag receives all data, validates and sends to ReD Shield  
+5 - ReD Shield receives all data, sends the *black box* to the Iovation decrypt  
+6 - Red Shield receives from Iovation the attributes of the buyer's device 
 
-## Como configurar?
+## How to configure?
 
-1 - Inclua o javascript da Iovation em sua página de checkout  
-2 - Adicione parâmetros de configuração no javascript  
-3 - Crie um campo do tipo *hidden* em sua página para escrever a *caixa preta* nele e enviá-lo junto com os dados da transação a ser analisada  
+1 - Include Iovation's javascript on your checkout page  
+2 - Add configuration parameters in javascript  
+3 - Create a field of type *hidden* on your page to write the *black box* in it and send it along with the transaction data to be analyzed  
 
-**Obs.:** Não realize cache do script, pois pode ocorrer de vários dispositovos sejam identificados como sendo o mesmo.
+**Note.:** Do not cache the script as it may occur that multiple devices are identified as being the same.
 
-* Incluindo o javascript da Iovation  
+* Including javascript from Iovation  
 
-    Para incluir o javascript, adicione o seguinte elemento `<script>` na sua página de checkout. Esta é a URL da versão do snare.js do ambiente de produção da Iovation.  
-    **Exemplo:** `<script type="text/javascript" src="https://mpsnare.iesnare.com/snare.js"></script>`  
+    To include javascript, add the `<script>` element to your checkout page. This is the URL of the snare.js version of the Iovation production environment.  
+    **Exemple:** `<script type="text/javascript" src="https://mpsnare.iesnare.com/snare.js"></script>`  
 
-    **IMPORTANTE!**  
-    Os parâmetros de configuração devem ser colocados antes da chamada da tag acima. Eles determinam como javascript do iovation funcionará, e podem ocorrer erros
-    caso os mesmos sejam colocados antes da chamada do javascript.
+    **IMPORTANT!**  
+    The configuration parameters should be placed before the above tag is called. They determine how iovation's javascript will work, and errors can occur if they are placed before the javascript call.
 
-**Exemplo**  
+**Exemple**  
 
 ```html
 <html>

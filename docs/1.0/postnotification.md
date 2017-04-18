@@ -1,36 +1,35 @@
 ---
 layout: page-classic-sidebar-left
-title: Notificação de Mudança de Status
+title: Status Change Notification
 featimg: MapAntifraud.png
 previous: /docs/1.0/analise
 next: /docs/1.0/autenticacao
 ---
 ---
 
-Serviço que envia um post de notificação ao cliente caso haja alguma alteração de status
+Service that sends a notification post to the client if there is any change of status.
 
-* É necessário solicitar ao Time de Implementação ([implantacao.operacoes@braspag.com.br](mailto:implantacao.operacoes@braspag.com.br)) o cadastramento da URL de mudança de status.
-Quando estimulada pelo servidor da Braspag, enviando um POST, a URL cadastrada para receber a
-mudança de status, deverá retornar o código HTTP 200 (OK), indicando que a mensagem foi recebida e processada com sucesso pelo servidor da loja.
+* It is necessary to request the Implementation Team ([implantacao.operacoes@braspag.com.br](mailto:implantacao.operacoes@braspag.com.br)) to register the status change URL.
+When stimulated by Braspag's server, sending a POST, the URL registered to receive the
+Change status, you must return the HTTP 200 (OK) code, indicating that the message was successfully received and processed by the store server.
 
-* Se a URL de mudança de status da loja for acessada pelo servidor da Braspag não retornar o código de
-confirmação HTTP 200 (OK) ou ocorrer uma falha na conexão, serão realizadas mais 3 tentativas de envio.
+* If the store status change URL is accessed by the Braspag server, do not return the
+HTTP 200 (OK) or a connection failure occurs, a further 3 send attempts will be made.
 
-* A URL de mudança de status somente pode utilizar porta 80 (padrão para http) ou porta
-443 (padrão para https). Recomendamos que a loja trabalhe sempre com SSL para esta URL, ou seja, sempre HTTPS.
+* The status change URL can only use port 80 (default for http) or port
+443 (default for https). We recommend that the store always work with SSL for this URL, always HTTPS.
 
-![Notificação de Mudança de Status]({{ site.url }}/img/PostNotification.png){: .centerimg }{:title="Notificação de Mudança de Status "}
+![Status Change Notification]({{ site.url }}/img/PostNotification.png){: .centerimg }{:title="Status Change Notification "}
 
-#### `POST`{:.http-post} Notificação de Mudança de Status 
+#### `POST`{:.http-post} Status Change Notification 
 ----------------------------------------------
-Abaixo seguem os exemplos de mensagem que o servidor da Braspag enviará à URL cadastrada, e como deve ser a resposta enviada em caso de sucesso.
-
+Below are the sample messages that the Braspag server will send to the registered URL, and what the response should be if it succeeds.
 
 **REQUEST:**  
 
 ``` http
-POST https://urlcadastrada.loja.com.br/Notification/ HTTP/1.1
-Host: urlcadastrada.loja.com.br
+POST https://urlregistered.store.com.br/Notification/ HTTP/1.1
+Host: urlcregistered.store.com.br
 Content-Type: application/json
 ```
 
@@ -40,8 +39,8 @@ Content-Type: application/json
    "OrderId":"4493d42c-8732-4b13-aadc-b07e89732c27",
    "OriginalDecision":"Review",
    "NewDecision":"Accept",
-   "Reviewer":"Alberto Moreira da Silva",
-   "ReviewerComments":"Transação Aceita Após Ligação para o Cliente",
+   "Reviewer":"João das Couves",
+   "ReviewerComments":"Transaction Accepted After Customer Connection",
    "Notes":null,
    "Queue":null,
    "Profile":null

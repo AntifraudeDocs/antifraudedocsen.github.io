@@ -1,11 +1,12 @@
 ---
 layout: post-full
-title: Notificação de Mudança de Status
+title: Status Change Notification
 featimg: PostNotification.png
-tags: [notificacao]
+tags: [notification]
 category: [docs]
 ---
 
-Esta página descreve o serviço de POST de Notificação, que envia uma notificação para a loja, caso haja alguma alteração de Status na Transação de revisão para aceita/rejeita.
 
-[Ver página completa]({{ site.baseurl }}{% link docs/1.0/postnotification.md %})  
+This page describes the Notification POST service, which sends a notification to the store, in case there is any change of status in the review transaction to accept ou reject.
+
+[View full page]({{ site.baseurl }}{% link docs/1.0/postnotification.md %})  

@@ -1,11 +1,11 @@
 ---
 layout: post-full
-title: Configuração do Fingerprint
+title: Fingerprint Setup
 featimg: fingerprint.png
 tags: [fingerprint]
 category: [docs]
 ---
 
-Esta página descreve como funciona e como configurar o fingerprint em sua página de checkout.  
+This page describes how it works and how to setup the fingerprint on your checkout page.
 
-[Ver página completa]({{ site.baseurl }}{% link docs/1.0/fingerprint.md %})  
+[View full page]({{ site.baseurl }}{% link docs/1.0/fingerprint.md %})  

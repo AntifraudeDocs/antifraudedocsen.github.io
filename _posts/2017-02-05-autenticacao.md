@@ -1,11 +1,11 @@
 ---
 layout: post-full
-title: Autenticação
+title: Authentication
 featimg: AntifraudeAuthentication.png
-tags: [autenticacao]
+tags: [authentication]
 category: [docs]
 ---
 
-Esta página descreve como se autenticar na plataforma Antifraude Gateway, para que seja possivel realizar Análises de transações.
+This page describes how to authenticate to the Antifraud Gateway API platform so that it is possible to perform transaction analyzes.
 
-[Ver página completa]({{ site.baseurl }}{% link docs/1.0/autenticacao.md %})  
+[View full page]({{ site.baseurl }}{% link docs/1.0/autenticacao.md %})  
