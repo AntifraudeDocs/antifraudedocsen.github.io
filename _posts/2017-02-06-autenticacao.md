@@ -1,8 +1,7 @@
 ---
 layout: post-full
 title: Authentication
-featimg: AntifraudeAuthentication.png
-tags: [authentication]
+featimg: AntifraudeAuthentication.pn
 category: [docs]
 ---
 

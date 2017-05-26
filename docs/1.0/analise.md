@@ -32,7 +32,7 @@ Ex.: USD (Dolar) | BRL(Real)
 
 **Provider**{:.custom-attrib} `required`{:.custom-tag} `15`{:.custom-tag} `string`{:.custom-tag}  
 Fraud analysis solution provider name.  
-Ex.: ReDShield
+Enum: ReDShield
 
 **OrderDate**{:.custom-attrib} `required`{:.custom-tag} `datetime`{:.custom-tag}  
 Order date.  
@@ -44,6 +44,7 @@ Ex.: ED3B6646-5B6E-451C-B3CF-4FF5E807CB69
 
 **SplitingPaymentMethod**{:.custom-attrib} `optional`{:.custom-tag} `23`{:.custom-tag} `string`{:.custom-tag}  
 Identifies whether the transaction authorization is with one or two cards or with more than one payment method, for example credit card and bank slip.  
+Enum:  
 None -> Payment only with a credit card  
 CardSplit -> Payment with more than one credit card  
 MixedPaymentMethodSplit -> Payment with more than one payment method  
@@ -139,9 +140,9 @@ Workphone of the person responsible to receive the product in the shipping addre
 **ShippingData.Mobile**{:.custom-attrib}  `optional`{:.custom-tag} `100`{:.custom-tag} `string`{:.custom-tag}  
 Cellphone of the person responsible to receive the product in the shipping address.  
 
-**ShippingData.ShippingMethod**{:.custom-attrib}  `optional`{:.custom-tag} `50`{:.custom-tag} `string`{:.custom-tag}  
+**ShippingData.ShippingMethod**{:.custom-attrib}  `optional`{:.custom-tag} `27`{:.custom-tag} `string`{:.custom-tag}  
 Shipping Method.  
-Ex.: None | SameDay | NexDay | TwoDay | ThreeDay | LowCost | CarrierDesignatedByCustomer | Pickup | International | Military | Other  
+Enum: None | SameDay | NexDay | TwoDay | ThreeDay | LowCost | CarrierDesignatedByCustomer | Pickup | International | Military | Other  
 
 **ShippingData.Comment**{:.custom-attrib}  `optional`{:.custom-tag} `100`{:.custom-tag} `string`{:.custom-tag}  
 Shipping address references.  
@@ -163,8 +164,9 @@ Customer last name.
 Customer birthdate.  
 Ex.: 1983-10-01T00:00:00.000Z
 
-**CustomerData.Gender**{:.custom-attrib}  `optional`{:.custom-tag} `35`{:.custom-tag} `string`{:.custom-tag}  
+**CustomerData.Gender**{:.custom-attrib}  `optional`{:.custom-tag} `6`{:.custom-tag} `string`{:.custom-tag}  
 Customer gender.  
+Enum: Male | Female
 
 **CustomerData.Identity**{:.custom-attrib}  `optional`{:.custom-tag} `100`{:.custom-tag} `string`{:.custom-tag}  
 Customer identity.  
@@ -191,9 +193,9 @@ Customer workphone.
 Customer device fingerprint.  
 [Fingerprint Setup]({{ site.baseurl }}{% link docs/1.0/fingerprint.md %})
 
-**CustomerData.Status**{:.custom-attrib}  `optional`{:.custom-tag} `35`{:.custom-tag} `string`{:.custom-tag}  
+**CustomerData.Status**{:.custom-attrib}  `optional`{:.custom-tag} `8`{:.custom-tag} `string`{:.custom-tag}  
 Store customer status.  
-Ex.: NEW | EXISTING
+Ex.: New | Existing
 
 **CartItem[n].ProductName**{:.custom-attrib}  `optional`{:.custom-tag} `50`{:.custom-tag} `string`{:.custom-tag}  
 Product name.  
@@ -224,9 +226,9 @@ Product description.
 **CartItem[n].ShippingInstructions**{:.custom-attrib}  `optional`{:.custom-tag} `255`{:.custom-tag} `string`{:.custom-tag}  
 Product shipping instructions.  
 
-**CartItem[n].ShippingMethod**{:.custom-attrib}  `optional`{:.custom-tag} `255`{:.custom-tag} `string`{:.custom-tag}  
+**CartItem[n].ShippingMethod**{:.custom-attrib}  `optional`{:.custom-tag} `27`{:.custom-tag} `string`{:.custom-tag}  
 Product shipping method.  
-Ex.: None | SameDay | NexDay | TwoDay | ThreeDay | LowCost | CarrierDesignatedByCustomer | Pickup | International | Military | Other
+Enum: None | SameDay | NexDay | TwoDay | ThreeDay | LowCost | CarrierDesignatedByCustomer | Pickup | International | Military | Other
 
 **CartItem[n].ShippingTranckingNumber**{:.custom-attrib}  `optional`{:.custom-tag} `50`{:.custom-tag} `string`{:.custom-tag}  
 Product shipping tracking number.  
@@ -234,10 +236,6 @@ Product shipping tracking number.
 **CustomerConfigurationData.ServiceId**{:.custom-attrib}  `optional`{:.custom-tag} `50`{:.custom-tag} `string`{:.custom-tag}  
 Id of the service in the risk system. This field is usually set up as a configuration, but in some situations you might want to use the dynamic request based option described here.
 For the ReD Shield this defines which fraud screening service to use.  
-
-**CustomerConfigurationData.RiskAmount**{:.custom-attrib}  `optional`{:.custom-tag} `long`{:.custom-tag}  
-Amount for the risk request.  
-Ex.: 1090 (Amount equivalent to $10.90)
 
 **CustomerConfigurationData.RiskBrand**{:.custom-attrib}  `optional`{:.custom-tag} `50`{:.custom-tag} `long`{:.custom-tag}  
 Brand for the risk request.  
@@ -263,7 +261,7 @@ Ex.: 2017-03-01T15:10:00.000Z
 
 **TravelData.JouneyType**{:.custom-attrib}  `optional`{:.custom-tag} `100`{:.custom-tag} `string`{:.custom-tag}  
 Journey type.  
-Ex.: Só ida | Ida e Volta.  
+Enum: OneWayTrip | RoundTrip
 
 **TravelData.TravelLeg[n].Origin**{:.custom-attrib}  `optional`{:.custom-tag} `5`{:.custom-tag} `string`{:.custom-tag}  
 Travel origin airport code.  
@@ -291,11 +289,11 @@ ID of the passenger to whom the ticket was issued.
 
 **PassengerData[n].Status**{:.custom-attrib} `optional`{:.custom-tag} `15`{:.custom-tag} `string`{:.custom-tag}  
 Airline classification.  
-Ex.: Gold | Platinum  
+Enum: Gold | Platinum  
 
 **PassengerData[n].PassengerType**{:.custom-attrib} `optional`{:.custom-tag} `35`{:.custom-tag} `string`{:.custom-tag}  
 Passenger type.  
-Ex.: Adult | Child | Infant | Youth | Student | SeniorCitizen | Military
+Enum: Adult | Child | Infant | Youth | Student | SeniorCitizen | Military
 
 **PassengerData[n].Email**{:.custom-attrib} `optional`{:.custom-tag} `100`{:.custom-tag} `string`{:.custom-tag}  
 Passenger e-mail.  
@@ -427,7 +425,6 @@ Content-Type: application/json
   ],
   "CustomConfiguration": {
     "ServiceId": "0",
-    "RiskAmount": 0,
     "RiskBrand": "0",
     "MerchantWebsite": "www.test.com"
   },
@@ -577,7 +574,6 @@ Content-Type: application/json;charset=UTF-8
   ],
   "CustomConfiguration": {
     "ServiceId": "0",
-    "RiskAmount": 0,
     "RiskBrand": "0",
     "MerchantWebsite": "www.test.com"
   },

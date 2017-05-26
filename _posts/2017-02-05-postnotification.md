@@ -2,7 +2,6 @@
 layout: post-full
 title: Status Change Notification
 featimg: PostNotification.png
-tags: [notification]
 category: [docs]
 ---
 
