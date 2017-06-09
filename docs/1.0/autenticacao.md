@@ -11,6 +11,11 @@ The Gateway Anti-Fraud API uses the industry-standard OAuth 2.0 protocol for aut
 
 This document describes the flow necessary for **client** obtain valid access tokens for use on the platform. If you want more information about the OAuth 2.0 protocol, see [https://oauth.net/2/](https://oauth.net/2/){:target="_blank"}.  
 
+## Hosts
+
+**Test** https://authhomolog.braspag.com.br  
+**Live** https://auth.braspag.com.br
+
 ## Flow to obtain the access token  
 ----------------------------------------------
 
@@ -53,6 +58,7 @@ POST https://authhomolog.braspag.com.br/oauth2/token HTTP/1.1
 Host: https://authhomolog.braspag.com.br
 Content-Type: application/x-www-form-urlencoded
 Authorization: Basic {StringCodificadaEmBase64}
+Scope: AntifraudGatewayApp
 Cache-Control: no-cache
 
 grant_type=client_credentials

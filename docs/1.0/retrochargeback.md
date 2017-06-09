@@ -11,6 +11,11 @@ Service to send the transactions to Braspag that have already been analyzed and 
 
 Obs.: The service accepts POST request with a maximum of 100 items in the collection.  
 
+## Hosts
+
+**Test** https://riskhomolog.braspag.com.br  
+**Live** https://risk.braspag.com.br
+
 <a name="contract"></a>
   
 ## Contract fields

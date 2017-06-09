@@ -16,9 +16,14 @@ Service associating a transaction from Pagador Braspag with the transaction of A
     
     - The 3º step should be the call to this service to associate the transaction of the Pagador with the transaction of the Anti-Fraud Gateway.  
 
+## Hosts
+
+**Test** https://riskhomolog.braspag.com.br  
+**Live** https://risk.braspag.com.br
+
 <a name="contract"></a>
   
-## Atributos
+## Parameter
 -----------------------------------
 
 **BraspagTransactionId**{:.custom-attrib}  `required`{:.custom-tag} `Guid`{:.custom-tag}  
@@ -71,7 +76,7 @@ HTTP/1.1 200 Ok
 ```
 - When the Pagador transaction is not entered in the requisition  
 ``` http
-HTTP/1.1 400 Not found
+HTTP/1.1 400 Bad Request
 ```
 - When the Antifraud Gateway transaction is not found in the database
 ``` http
