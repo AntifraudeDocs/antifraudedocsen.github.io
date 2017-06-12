@@ -27,10 +27,6 @@ Transaction identifier in Antifraud Gateway.
 **BraspagTransactionId**{:.custom-attrib}  `optional`{:.custom-tag} `Guid`{:.custom-tag}  
 Transaction identifier in Pagador.
 
-**TransactionDate**{:.custom-attrib} `required`{:.custom-tag} `date`{:.custom-tag}  
-Transaction date in Antifraud Gateway.  
-Ex.: 2016-12-09
-
 **ChargebackAmount**{:.custom-attrib} `required`{:.custom-tag} `long`{:.custom-tag}  
 Cahargeback amount.  
 Ex.: 150000 (Valor equivalente a R$1.500,00)
@@ -76,8 +72,15 @@ Content-Type: application/json
     "Chargebacks":
     [
         {
+            "Id" : "fb647240-824f-e711-93ff-000d3ac03bed",
+            "BraspagTransactionId": "a3e08eb2-2144-4e41-85d4-61f1befc7a3b",
+            "ChargebackAmount" : "1000",
+            "ChargebackDate" : "2017-12-02",
+            "ChargebackReasonCode" : "1",
+            "IsFraud" : "false"
+        },
+        {
             "Id": "9004ba26-f1f1-e611-9400-005056970d6f",
-            "TransactionDate": "2016-12-08",
             "ChargebackAmount": "27580",
             "ChargebackDate": "2017-12-02",
             "ChargebackReasonCode": "54",
@@ -85,7 +88,6 @@ Content-Type: application/json
         },
         {
             "Id": "4493d42c-8732-4b13-aadc-b07e89732c26",
-            "TransactionDate": "2016-12-10",
             "ChargebackAmount": "59960",
             "ChargebackDate": "2017-12-02",
             "ChargebackReasonCode": "54",
@@ -93,7 +95,6 @@ Content-Type: application/json
         },
         {
             "Id": "22b5e829-edf1-e611-9414-0050569318a7",
-            "TransactionDate": "2016-12-09",
             "ChargebackAmount": "150000",
             "ChargebackDate": "2017-12-02",
             "ChargebackReasonCode": "54",
@@ -110,25 +111,53 @@ Content-Type: application/json
 HTTP/1.1 200 Ok
 ```
 
-- When the processing of all uploaded transactions does not occur, either the returned transaction identifier or the failed transaction is returned, and the reason.  
+- When all sent chargeback transactions are not processed, the transaction identifier with the reason is returned through the "ChargebackProcessingStatus" field.  
 
+    * Reason equal to "Success", the chargeback transaction was successfully processed.  
+    * Reason equal to "AlreadyExist," the chargeback transaction is already associated with the original fraud analysis transaction.
     * Reason equal to "Remand", the chargeback transaction should be forwarded.  
-    * Reason equal to "NotFound", the chargeback transaction should not be resubmitted because the origin of this linked fraud analysis was not found in the database.
+    * Reason equal to "NotFound", the chargeback transaction should not be resubmitted because the origin of this linked fraud analysis was not found in the database.  
+
 ``` http
-HTTP/1.1 207 Multi-Status
+HTTP/1.1 300 Multiple Choices
 ```
 ``` json
 {
-    "ChargebacksUnprocessed":
+    "Chargebacks":
     [
-            {
-                "Id": "9004ba26-f1f1-e611-9400-005056970d6f",
-                "Reason": "Remand"
-            },
-            {
-                "Id": "4493d42c-8732-4b13-aadc-b07e89732c26",
-                "Reason": "NotFound"
-            }
+         {
+            "Id" : "fb647240-824f-e711-93ff-000d3ac03bed",
+            "BraspagTransactionId": "a3e08eb2-2144-4e41-85d4-61f1befc7a3b",
+            "ChargebackAmount" : "1000",
+            "ChargebackDate" : "2017-12-02",
+            "ChargebackReasonCode" : "1",
+            "IsFraud" : "false",
+            "ChargebackProcessingStatus": "Success"
+        },
+        {
+            "Id": "9004ba26-f1f1-e611-9400-005056970d6f",
+            "ChargebackAmount": "27580",
+            "ChargebackDate": "2017-12-02",
+            "ChargebackReasonCode": "54",
+            "IsFraud": "true",
+            "ChargebackProcessingStatus": "AlreadyExist"
+        },
+        {
+            "Id": "4493d42c-8732-4b13-aadc-b07e89732c26",
+            "ChargebackAmount": "59960",
+            "ChargebackDate": "2017-12-02",
+            "ChargebackReasonCode": "54",
+            "IsFraud": "true",
+            "ChargebackProcessingStatus": "Remand"
+        },
+        {
+            "Id": "22b5e829-edf1-e611-9414-0050569318a7",
+            "ChargebackAmount": "150000",
+            "ChargebackDate": "2017-12-02",
+            "ChargebackReasonCode": "54",
+            "IsFraud": "true",
+            "ChargebackProcessingStatus": "NotFound"
+        }
     ]
 }
 ```
