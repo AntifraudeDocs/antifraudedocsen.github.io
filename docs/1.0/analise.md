@@ -72,6 +72,7 @@ Security code.
 
 **Card.Brand**{:.custom-attrib} `required`{:.custom-tag} `10`{:.custom-tag} `string`{:.custom-tag}  
 Brand.  
+Supported brands: Amex | Diners | Discover | JCB | Master | Dankort | Cartebleue | Maestro | Visa | Elo | Hipercard  
 
 **Card.EciThreeDSecure**{:.custom-attrib} `optional`{:.custom-tag} `1`{:.custom-tag} `string`{:.custom-tag}  
 Authentication ECI(Eletronic Commerce Indicator code) code  
@@ -551,30 +552,30 @@ MerchantId: {Merchant Id in Gateway Antifraud}
 
 - When the transaction has the analysis performed.
 
-**Id**
+**Id**  
 Id of the transaction in the Antifraude Gateway Braspag.
 
-**AnalysisResult.Status**
-Transaction status in the Anti-fraud Gateway Braspag after the analysis.
-Enum:
-Started = Transaction received by Braspag.
-Accept = Transaction accepted after fraud analysis.
-Review = Transaction under review after fraud analysis.
-Reject = Transaction rejected after fraud analysis.
-Unfinished = Transaction not finalized by some internal error in the system.
-ProviderError = Transaction with error in the anti-fraud provider.
+**AnalysisResult.Status**  
+Transaction status in the Anti-fraud Gateway Braspag after the analysis.  
+Enum:  
+Started = Transaction received by Braspag.  
+Accept = Transaction accepted after fraud analysis.  
+Review = Transaction under review after fraud analysis.  
+Reject = Transaction rejected after fraud analysis.  
+Unfinished = Transaction not finalized by some internal error in the system.  
+ProviderError = Transaction with error in the anti-fraud provider.  
 
-**Message**
-Anti-Fraud provider return message.
+**Message**  
+Anti-Fraud provider return message.  
 
-**ProviderCode**
-Anti-fraud provider return code.
+**ProviderCode**  
+Anti-fraud provider return code.  
 
-**ProviderTransactionId**
-Transaction ID in the anti-fraud provider.
+**ProviderTransactionId**  
+Transaction ID in the anti-fraud provider.  
 
-**ProviderRequestTransactionId**
-Transaction request id in the anti-fraud provider.
+**ProviderRequestTransactionId**  
+Transaction request id in the anti-fraud provider.  
 
 ``` http
 HTTP/1.1 201 Created

@@ -114,7 +114,7 @@ Add the iovation Mobile SDK to your apps to collect information about your end-u
 * Integrating with iOS Apps  
 
 iOS Integration Files and Requirements
-![Detalhes]({{ site.url }}/img/fingerprintios.png){: .left }{:title="iOS Integration Details"}  
+![Detalhes]({{ site.url }}/img/fingerprintios1.png){: .left }{:title="iOS Integration Details"}  
 
 Version 3.1.0 of the iovation iOS SDK supports iOS 5.1.1 or higher on the following devices:  
         iPhone 3GS and later  
