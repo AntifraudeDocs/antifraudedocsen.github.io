@@ -20,7 +20,7 @@ This page describes the fields of the Gateway Anti-Fraud contract, as well as ex
 -----------------------------------
 
 **MerchantOrderId**{:.custom-attrib}  `required`{:.custom-tag} `100`{:.custom-tag} `string`{:.custom-tag}  
-Store Order Number.  
+Merchant Order Number.  
 
 **TotalOrderAmount**{:.custom-attrib} `required`{:.custom-tag} `long`{:.custom-tag}  
 Total order value in cents.  
@@ -87,10 +87,10 @@ Note.: This field can be sent in the fraud analysis when you want to save a card
 Note2.: This field can be sent in place of the fields **Card.Number, Card.Holder, Card.ExpirationDate**, making them as well as not mandatory. The system will consume the Cartão Protegido by sending this field to fill the above.  
 Note3.: This field loses priority if the **Card.Token** field is also sent.  
 
-**Card.Save**{:.custom-attrib} `default = false`{:.custom-tag} `optional`{:.custom-tag} `Guid`{:.custom-tag}  
+**Card.Save**{:.custom-attrib} `default = false`{:.custom-tag} `optional`{:.custom-tag} `bool`{:.custom-tag}  
 Indicates whether credit card data will be stored on the Cartão Protegido. The Token generated on the Cartão Protegido platform associated with the credit card data, will return in the response of the fraud analysis through **Card.Token** field.  
 Note.: The following fields are saved on the Cartão Protegido: **Card.Number, Card.Holder, Card.ExpirationDate**.  
-Note2.: The action of saving the data of the credit card will only be made if the store has the product Cartão Protegido hired.  
+Note2.: The action of saving the data of the credit card will only be made if the merchant has the product Cartão Protegido hired.  
 
 **Billing.Street**{:.custom-attrib} `optional`{:.custom-tag} `24`{:.custom-tag} `string`{:.custom-tag}  
 Street of billing address.  
@@ -252,7 +252,7 @@ Customer device fingerprint.
 [Fingerprint Setup]({{ site.baseurl }}{% link docs/1.0/fingerprint.md %})
 
 **Customer.Status**{:.custom-attrib}  `optional`{:.custom-tag} `8`{:.custom-tag} `string`{:.custom-tag}  
-Store customer status.  
+Merchant customer status.  
 Ex.: New | Existing
 
 **CartItem[n].ProductName**{:.custom-attrib}  `optional`{:.custom-tag} `50`{:.custom-tag} `string`{:.custom-tag}  
@@ -263,7 +263,7 @@ Product unit price.
 Ex.: 10950 (Amount equivalent to $109.50)
 
 **CartItem[n].MerchantItemId**{:.custom-attrib}  `optional`{:.custom-tag} `30`{:.custom-tag} `string`{:.custom-tag}  
-Store product ID.  
+Merchant product ID.  
 
 **CartItem[n].Sku**{:.custom-attrib}  `optional`{:.custom-tag} `12`{:.custom-tag} `string`{:.custom-tag}  
 Product SKU.  
@@ -302,6 +302,40 @@ None = No delivery method, because it is a service or subscription
 **CartItem[n].ShippingTranckingNumber**{:.custom-attrib}  `optional`{:.custom-tag} `19`{:.custom-tag} `string`{:.custom-tag}  
 Product shipping tracking number.  
 
+**CartItem[n].Passenger.FirstName**{:.custom-attrib} `optional`{:.custom-tag} `255`{:.custom-tag} `string`{:.custom-tag}  
+Passanger last name.  
+
+**CartItem[n].Passenger.MiddleName**{:.custom-attrib} `optional`{:.custom-tag} `255`{:.custom-tag} `string`{:.custom-tag}  
+Passanger middle name.  
+
+**CartItem[n].Passenger.LastName**{:.custom-attrib} `optional`{:.custom-tag} `255`{:.custom-tag} `string`{:.custom-tag}  
+Passanger last name.  
+
+**CartItem[n].Passenger.DateOfBirth**{:.custom-attrib} `optional`{:.custom-tag} `date`{:.custom-tag}  
+Passanger birthdate.  
+Ex.: 1985-07-22  
+
+**CartItem[n].Passenger.PassangerId**{:.custom-attrib} `optional`{:.custom-tag} `50`{:.custom-tag} `string`{:.custom-tag}  
+ID of the passenger to whom the ticket was issued.  
+
+**CartItem[n].Passenger.Status**{:.custom-attrib} `optional`{:.custom-tag} `15`{:.custom-tag} `string`{:.custom-tag}  
+Airline classification.  
+Enum: Gold | Platinum  
+
+**CartItem[n].Passenger.PassengerType**{:.custom-attrib} `optional`{:.custom-tag} `35`{:.custom-tag} `string`{:.custom-tag}  
+Passenger type.  
+Enum: Adult | Child | Infant | Youth | Student | SeniorCitizen | Military
+
+**CartItem[n].Passenger.Email**{:.custom-attrib} `optional`{:.custom-tag} `100`{:.custom-tag} `string`{:.custom-tag}  
+Passenger e-mail.  
+
+**CartItem[n].Passenger.Phone**{:.custom-attrib} `optional`{:.custom-tag} `35`{:.custom-tag} `string`{:.custom-tag}  
+Passenger phone.  
+Ex.: 552121114700  
+55 = Country code  
+21 = State code  
+21114700 = Phonenumber  
+
 <!--**CustomerConfigurationData.ServiceId**{:.custom-attrib}  `optional`{:.custom-tag} `50`{:.custom-tag} `string`{:.custom-tag}  
 Id of the service in the risk system. This field is usually set up as a configuration, but in some situations you might want to use the dynamic request based option described here.
 For the ReD Shield this defines which fraud screening service to use.  -->
@@ -310,7 +344,7 @@ For the ReD Shield this defines which fraud screening service to use.  -->
 Brand for the risk request.  -->
 
 **CustomerConfigurationData.Website**{:.custom-attrib}  `optional`{:.custom-tag} `100`{:.custom-tag} `string`{:.custom-tag}  
-Store website.  
+Merchant website.  
 
 <!--**CustomerConfigurationData.AccessTokenS**{:.custom-attrib}  `optional`{:.custom-tag} `255`{:.custom-tag} `string`{:.custom-tag}  -->
 
@@ -321,9 +355,9 @@ Field defined in partnership with provider.
 Field defined in partnership with provider.  
 
 Note: Among 15 fields available for customization, 5 are 256 alphanumeric characters and 10 are alphanumeric characters in size.  
-Note2.: There are already 2 fields beyond the 15 available, which the store can send, which are:  
-      - Segment = Merchant Segment Code (MCC). If it fits in more than one segment, send the code of the main segment that the store operates.  
-      - MerchantId = Store identifier in the shopkeeper. This identify is not the store identifier in the anti-fraud at Braspag. Example of sending, when the store works with marketplace, where you can send the identifier of the selling store (Seller).  
+Note2.: There are already 2 fields beyond the 15 available, which the merchant can send, which are:  
+      - Segment = Merchant Segment Code (MCC). If it fits in more than one segment, send the code of the main segment that the merchant operates.  
+      - MerchantId = Merchant identifier in the shopkeeper. This identify is not the merchant identifier in the anti-fraud at Braspag. Example of sending, when the merchant works with marketplace, where you can send the identifier of the selling merchant (Seller).  
 
 **Travel.CompleteRoute**{:.custom-attrib}  `optional`{:.custom-tag} `100`{:.custom-tag} `string`{:.custom-tag}  
 Full trip route. Concatenation of legs (airport code) of origin and destination of the trip in the format, ORIG1-DEST1:ORIG2-DEST2.  
@@ -345,40 +379,6 @@ Ex.: SFO
 Travel destination airport code.  
 Ex.: JFK  
 
-**Passenger[n].FirstName**{:.custom-attrib} `optional`{:.custom-tag} `255`{:.custom-tag} `string`{:.custom-tag}  
-Passanger last name.  
-
-**Passenger[n].MiddleName**{:.custom-attrib} `optional`{:.custom-tag} `255`{:.custom-tag} `string`{:.custom-tag}  
-Passanger middle name.  
-
-**Passenger[n].LastName**{:.custom-attrib} `optional`{:.custom-tag} `255`{:.custom-tag} `string`{:.custom-tag}  
-Passanger last name.  
-
-**Passenger[n].DateOfBirth**{:.custom-attrib} `optional`{:.custom-tag} `date`{:.custom-tag}  
-Passanger birthdate.  
-Ex.: 1985-07-22  
-
-**Passenger[n].PassangerId**{:.custom-attrib} `optional`{:.custom-tag} `50`{:.custom-tag} `string`{:.custom-tag}  
-ID of the passenger to whom the ticket was issued.  
-
-**Passenger[n].Status**{:.custom-attrib} `optional`{:.custom-tag} `15`{:.custom-tag} `string`{:.custom-tag}  
-Airline classification.  
-Enum: Gold | Platinum  
-
-**Passenger[n].PassengerType**{:.custom-attrib} `optional`{:.custom-tag} `35`{:.custom-tag} `string`{:.custom-tag}  
-Passenger type.  
-Enum: Adult | Child | Infant | Youth | Student | SeniorCitizen | Military
-
-**Passenger[n].Email**{:.custom-attrib} `optional`{:.custom-tag} `100`{:.custom-tag} `string`{:.custom-tag}  
-Passenger e-mail.  
-
-**Passenger[n].Phone**{:.custom-attrib} `optional`{:.custom-tag} `35`{:.custom-tag} `string`{:.custom-tag}  
-Passenger phone.  
-Ex.: 552121114700  
-55 = Country code  
-21 = State code  
-21114700 = Phonenumber  
-
 <a style="float: right;" href="#attributes"><i class="fa fa-angle-double-up fa-fw"></i></a>
 
 <a name="http_operations"></a>
@@ -387,7 +387,7 @@ Ex.: 552121114700
 -----------------------------------
 
 `POST`{:.http-post} [https://riskhomolog.braspag.com.br/Analysis/](#post_analise){:.custom-attrib}  
-Transaction Analysis  
+Transaction analysis  
 
 `GET`{:.http-get} [https://riskhomolog.braspag.com.br/Analysis/{Id}](#get_analise){:.custom-attrib}  
 Get analysis details  
@@ -396,7 +396,7 @@ Get analysis details
 
 <a name="post_analise"></a>
 
-#### `POST`{:.http-post} Transaction Analysis 
+#### `POST`{:.http-post} Transaction analysis 
 -------------------------------------------
 
 **REQUEST:**  
@@ -484,7 +484,18 @@ MerchantId: {Merchant Id in Gateway Antifraud}
       "Description": "Uma description do Mouse",
       "ShippingInstructions": "Proximo ao 546",
       "ShippingMethod": "SameDay",
-      "ShippingTrackingNumber": "123456"
+      "ShippingTrackingNumber": "123456",
+      "Passenger": {
+        "FirstName": "João",
+        "MiddleName": "P",
+        "LastName": "Silva",
+        "PassengerId": "1",
+        "Status": "NEW",
+        "PassengerType": "Adult",
+        "Email": "emailpassageiro@dominio.com.br",
+        "Phone" : "552121114700",
+        "DateOfBirth": "1982-04-30"
+      }
     },
     {
       "ProductName": "Teclado",
@@ -531,20 +542,7 @@ MerchantId: {Merchant Id in Gateway Antifraud}
         "Destination": "EZE"
       }
     ]
-  },
-  "Passengers": [
-    {
-      "FirstName": "João",
-      "MiddleName": "P",
-      "LastName": "Silva",
-      "PassengerId": "1",
-      "Status": "NEW",
-      "PassengerType": "Adult",
-      "Email": "emailpassageiro@dominio.com.br",
-      "Phone" : "552121114700",
-      "DateOfBirth": "1982-04-30"
-    }
-  ]
+  }
 }
 ```
 
@@ -664,7 +662,18 @@ Content-Type: application/json;charset=UTF-8
       "Description": "Uma description do Mouse",
       "ShippingInstructions": "Proximo ao 546",
       "ShippingMethod": "SameDay",
-      "ShippingTrackingNumber": "123456"
+      "ShippingTrackingNumber": "123456",
+      "Passenger": {
+        "FirstName": "João",
+        "MiddleName": "P",
+        "LastName": "Silva",
+        "PassengerId": "1",
+        "Status": "NEW",
+        "PassengerType": "Adult",
+        "Email": "emailpassageiro@dominio.com.br",
+        "Phone" : "552121114700",
+        "DateOfBirth": "1982-04-30"
+      }
     },
     {
       "ProductName": "Teclado",
@@ -711,32 +720,19 @@ Content-Type: application/json;charset=UTF-8
         "Destination": "EZE"
       }
     ]
-  },
-  "Passengers": [
-    {
-      "FirstName": "João",
-      "MiddleName": "P",
-      "LastName": "Silva",
-      "PassengerId": "1",
-      "Status": "NEW",
-      "PassengerType": "Adult",
-      "Email": "emailpassageiro@dominio.com.br",
-      "Phone" : "552121114700",
-      "DateOfBirth": "1982-04-30"
-    }
-  ]
+  }
 }
 ```
 - When the data submitted for analysis has any inconsistency in the values, permitted sizes and / or field types as specified in the manual.
 
-**Message**
-Message for an invalid request.
+**Message**  
+Message for an invalid request.  
 
-**ModelState**
-If any field does not conform to the type or domain specified in the manual.
+**ModelState**  
+If any field does not conform to the type or domain specified in the manual.  
 
-**ModelState.FraudAnalysisRequestError**
-If any field does not conform to the size specified in the manual.
+**ModelState.FraudAnalysisRequestError**  
+If any field does not conform to the size specified in the manual.  
 
 ``` http
 HTTP/1.1 400 Bad Request
@@ -880,7 +876,18 @@ Content-Type: application/json;charset=UTF-8
       "Description": "Uma description do Mouse",
       "ShippingInstructions": "Proximo ao 546",
       "ShippingMethod": "SameDay",
-      "ShippingTrackingNumber": "123456"
+      "ShippingTrackingNumber": "123456",
+      "Passenger": {
+        "FirstName": "João",
+        "MiddleName": "P",
+        "LastName": "Silva",
+        "PassengerId": "1",
+        "Status": "NEW",
+        "PassengerType": "Adult",
+        "Email": "emailpassageiro@dominio.com.br",
+        "Phone" : "552121114700",
+        "DateOfBirth": "1982-04-30"
+      }
     },
     {
       "ProductName": "Teclado",
@@ -927,20 +934,7 @@ Content-Type: application/json;charset=UTF-8
         "Destination": "EZE"
       }
     ]
-  },
-  "Passengers": [
-    {
-      "FirstName": "João",
-      "MiddleName": "P",
-      "LastName": "Silva",
-      "PassengerId": "1",
-      "Status": "NEW",
-      "PassengerType": "Adult",
-      "Email": "emailpassageiro@dominio.com.br",
-      "Phone" : "552121114700",
-      "DateOfBirth": "1982-04-30"
-    }
-  ]
+  }
 }
 ```
   
