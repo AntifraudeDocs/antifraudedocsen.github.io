@@ -7,7 +7,7 @@ next: /docs/1.0/autenticacao
 ---
 ---
 
-Service that sends a notification post to the client if there is any change of status.  
+Service that sends a notification post to the client if there is any change of estatus.  
 
 * It is necessary to request the Implementation Team ([implantacao.operacoes@braspag.com.br](mailto:implantacao.operacoes@braspag.com.br)) to register the status change URL. When stimulated by Braspag's server, sending a POST, the URL registered to receive the Change status, you must return the HTTP 200 (OK) code, indicating that the message was successfully received and processed by the merchant server.
 
@@ -16,7 +16,7 @@ Service that sends a notification post to the client if there is any change of s
 * The status change URL can only use port 80 (default for http) or port 443 (default for https). We recommend that the merchant always work with SSL for this URL, always HTTPS.  
 
 * After the merchant receives the status change notification, it must perform a GET through the URL https://riskhomolog.braspag.com.br/Analysis/{Id}, sending the transaction ID that was received in the notice of the change of status .
-For more details on how to perform GET, see Analysis of the [Getting Analysis Details] session ({{site.baseurl}} {% link docs / 1.0 / analysis.md%}).
+For more details on how to perform GET, see Analysis of the [Getting Analysis Details] session ({{site.baseurl}} {% link docs/1.0/analise.md%}).
 
 ![Status Change Notification]({{ site.url }}/img/PostNotification.png){: .centerimg }{:title="Status Change Notification "}
 
@@ -43,5 +43,3 @@ Content-Type: application/json
 ``` http
 HTTP/1.1 200 Ok
 ```
-
-Opss!
