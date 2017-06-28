@@ -365,7 +365,7 @@ Ex.: SFO-JFK:JFK-LHR:LHR-CDG
 
 **Travel.DepartureTime**{:.custom-attrib}  `optional`{:.custom-tag} `datetime`{:.custom-tag}  
 Departure date.  
-Ex.: 2017-03-01T15:10:00.000Z
+Ex.: 2017-03-01T15:10:00.000Z  
 
 **Travel.JourneyType**{:.custom-attrib}  `optional`{:.custom-tag} `100`{:.custom-tag} `string`{:.custom-tag}  
 Journey type.  

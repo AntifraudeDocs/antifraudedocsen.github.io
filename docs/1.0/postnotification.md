@@ -7,7 +7,7 @@ next: /docs/1.0/autenticacao
 ---
 ---
 
-Service that sends a notification post to the client if there is any change of status.
+Service that sends a notification post to the client if there is any change of status.  
 
 * It is necessary to request the Implementation Team ([implantacao.operacoes@braspag.com.br](mailto:implantacao.operacoes@braspag.com.br)) to register the status change URL. When stimulated by Braspag's server, sending a POST, the URL registered to receive the Change status, you must return the HTTP 200 (OK) code, indicating that the message was successfully received and processed by the merchant server.
 
