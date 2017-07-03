@@ -1,7 +1,7 @@
 ---
 layout: post-full
 title: Authentication
-featimg: AntifraudeAuthentication.pn
+featimg: MapAntifraud.png
 category: [docs]
 ---
 

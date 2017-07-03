@@ -43,13 +43,13 @@ This document describes the flow necessary for **client** obtain valid access to
 
 * In order to authenticate with the Anti-Fraud API, it is necessary that the credentials **user** and **password** be created in advance, which must be requested from Braspag's Implementation Team.
 
-* Once in possession of the credentials, it will be necessary to "code it" in Base64, using a convention **"username: password"**.
+* Once in possession of the credentials, it will be necessary to "code it" in Base64, using a convention **"user: password"**.
 <br/>Exemple:
 
-    * User: braspagtestes
-    * Password: 1q2w3e4r
-    * String a ser codificada em Base 64: **braspagtestes:1q2w3e4r**
-    * Resultado: YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==
+    * User: **braspagtestes**
+    * Password: **1q2w3e4r**
+    * String to be encoded in Base64: **braspagtestes:1q2w3e4r**
+    * Result after encoding: YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==
 
 **REQUEST:**  
 
@@ -57,7 +57,7 @@ This document describes the flow necessary for **client** obtain valid access to
 POST https://authhomolog.braspag.com.br/oauth2/token HTTP/1.1
 Host: https://authhomolog.braspag.com.br
 Content-Type: application/x-www-form-urlencoded
-Authorization: Basic {StringCodificadaEmBase64}
+Authorization: Basic {String_Result_Encoded_In_Base64}
 Scope: AntifraudGatewayApp
 Cache-Control: no-cache
 
@@ -77,9 +77,10 @@ Content-Type: application/json;charset=UTF-8
   "expires_in": 599
 }
 ```
- 
- * In the response it is important to highlight the **expires_in** field, with the expiration time for access token in seconds.
 
-### How to obtain a user credential?  
+ * In the response it is important to highlight the **expires_in** field, with the expiration time for access token in seconds. When the token expires, it is necessary to consume the service again to get a new token.  
 
-> Request a credential by email [implantacao.operacoes@braspag.com.br](mailto:implantacao.operacoes@braspag.com.br)
+### How to obtain a credential?  
+
+> Request a credential by opening a ticket through our support tool, sending the IP(s) from your staging and production servers.  
+[Braspag Support](https://suporte.braspag.com.br/hc/en-us)

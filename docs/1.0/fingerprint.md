@@ -6,10 +6,13 @@ previous: /docs/1.0/postnotification
 next: /docs/1.0/autenticacao
 ---
 
-Service that collects device fingerprint and real geolocation from buyer IP and creates a *black box*.
-This *black box* is a string of encrypted characters that contain all device attributes.  
+Service that collects device fingerprints and real geolocation of the customer's IP  
 
 -----------------------------------
+
+## * ReDShield
+
+## Integration with your checkout page (site)
 
 ## How it works?
 
@@ -270,3 +273,77 @@ public class DevicePrintSampleActivity extends Activity
 }
 
 ```
+
+## * Cybersource
+
+You need to add a 1-pixel image, which is not shown on the screen, and two segments of code to the tag *<body>* on your checkout page, making sure that it will take 10 seconds between the submission and execution of the code page to the server.  
+
+**IMPORTANT!**  
+If the 3 code segments are not placed on the checkout page, the results may not be accurate.  
+
+**Putting the Code Segments and Substituting Variables**  
+Place the code segments immediately above the *<body>* tag to ensure that the web page will render correctly. Never add code segments to visible HTML elements. Code segments need to be loaded before the buyer completes the purchase order, otherwise an error will be generated.  
+
+In each segment below, replace the variables with the values ​​for the merchant and order number.  
+
+* Domain:
+    Testing - Use h.online-metrix.net, which is the DNS server's fingerprint, as outlined in Example HTML below;  
+    Production - Change the domain to a local URL, and configure your webserver to redirect this URL to h.online-metrix.net.  
+
+**ProviderOrgId**: To get it, contact Braspag.  
+**ProviderMerchantId**: To get it, contact Braspag.  
+**ProviderSessionId**: Use the same value passed in the parameter **MrchantOrderId** service request fraud analysis.  
+
+* PNG Image  
+
+```html
+
+<html>
+<head></head>
+<body>
+    <form>
+        <p style="background:url(https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId&amp;m=1)"></p>  
+        <img src="https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId&amp;m=2" alt="">  
+    </form>
+</body>
+</html>
+
+```
+
+* Flash Code  
+
+```html
+
+<html>
+<head></head>
+<body>
+    <form>
+        <object type="application/x-shockwave-flash" data="https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" width="1" height="1" id="thm_fp">
+            <param name="movie" value="https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" />
+            <div></div>
+        </object>
+    </form>
+</body>
+</html>
+
+```
+
+* Javascript Code
+
+```html
+
+<html>
+<head></head>
+<script src="https://h.online-metrix.net/fp/check.js?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" type="text/javascript"></script>
+<body></body>
+</html>
+
+```
+
+**IMPORTANT!**  
+Be sure to copy all data correctly and have replaced the variables correctly by their values.  
+
+**Setting Your Web Server**  
+If you do not complete this section, you will not get correct results, and the domain (url) of the supplier will be visible, it is more likely that your customer block it.  
+
+In the section *Putting the Code Segments and Substituting Variables (Domain)*, all objects refer to h.online-metrix.net, the DNS server's fingerprint. When you are ready for deployment, you must change the server name to a local URL and configure your Web server in a URL redirect for h.online-metrix.net.  
